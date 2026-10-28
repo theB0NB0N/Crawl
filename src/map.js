@@ -100,3 +100,12 @@ export function matchExit(state, floor, action) {
   }
   return best;
 }
+
+// The only flags a floor understands: keys that open locked exits and gates.
+export function allowedFlags(floor) {
+  const set = new Set();
+  for (const r of floor.rooms) for (const e of r.exits) {
+    if ((e.kind === 'locked' || e.kind === 'gate') && e.req) String(e.req).split('|').forEach((f) => set.add(f));
+  }
+  return [...set];
+}

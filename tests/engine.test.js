@@ -89,3 +89,18 @@ test('debug report captures turns and errors, never the key', async () => {
   assert.match(rep, /ERROR: boom/);
   assert.ok(!rep.includes('SECRETKEY'));
 });
+
+test('invented flags are ignored, real ones accepted', () => {
+  const s = mk();
+  applyDelta(s, floor, data, { flags: { 'asked-goblin-for-help': true, 'supply-cage-key': true } });
+  assert.deepEqual(Object.keys(s.flags), ['supply-cage-key']);
+});
+
+test('vague items rejected, bank items upgraded, unknown items get default effect', () => {
+  const s = mk();
+  applyDelta(s, floor, data, { add_items: [{ name: 'Trinket', tab: 'trinket' }, { name: 'Rusty Nail', tab: 'junk' }, { name: 'Goblin Dental Plan', tab: 'junk' }] });
+  const names = s.inventory.junk.map((i) => i.name);
+  assert.ok(!s.trinkets.some(Boolean));
+  assert.ok(names.includes('Rusty Nail') && names.includes('Goblin Dental Plan'));
+  assert.match(s.inventory.junk.find((i) => i.name === 'Rusty Nail').desc, /lock/i);
+});

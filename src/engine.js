@@ -1,6 +1,6 @@
 // Turn engine: validates the DM delta, runs timer/map rules, makes exactly one API call.
 import { addXp, damage, addItem, removeItemByName, noteTags } from './state.js';
-import { moveTo, canMove, discoverExit, currentRoom, roomById, matchExit } from './map.js';
+import { moveTo, canMove, discoverExit, currentRoom, roomById, matchExit, allowedFlags } from './map.js';
 import { checkCodeAchievements, findAch, award } from './achievements.js';
 import { addBox, TIERS } from './loot.js';
 import { parseReply } from './parser.js';
@@ -26,16 +26,26 @@ export function applyDelta(state, floor, data, delta) {
   }
   if (delta.mp) { c.mp = clamp(c.mp + clamp(delta.mp, -30, 30), 0, c.mpMax); }
   if (delta.xp) log.push(...addXp(state, clamp(delta.xp, 0, 200)));
-  for (const it of (Array.isArray(delta.add_items) ? delta.add_items : []).slice(0, 5)) {
-    if (!it || !it.name) continue;
-    const where = addItem(state, { name: it.name, tab: String(it.tab || 'junk').toLowerCase(), effect: it.effect, tags: [] });
-    log.push(`+ ${it.name} -> ${where}`);
+  const GENERIC = new Set(['item', 'items', 'trinket', 'thing', 'stuff', 'object', 'junk', 'loot', 'treasure', 'gear', 'consumable']);
+  for (const it of (Array.isArray(delta.add_items) ? delta.add_items : []).slice(0, 3)) {
+    if (!it || typeof it.name !== 'string') continue;
+    const name = it.name.trim();
+    if (name.length < 3 || GENERIC.has(name.toLowerCase())) { log.push(`(System rejected a vague item: "${name}")`); continue; }
+    const banked = data.items.items.find((b) => b.name.toLowerCase() === name.toLowerCase());
+    const item = banked
+      ? { ...banked }
+      : { name, tab: String(it.tab || 'junk').toLowerCase(), effect: (typeof it.effect === 'string' && it.effect.trim()) || 'No listed effect. The System did not bother.', tags: [] };
+    const where = addItem(state, item);
+    noteTags(state, item.tags || []);
+    log.push(`+ ${item.name} -> ${where}`);
   }
   for (const n of (Array.isArray(delta.remove_items) ? delta.remove_items : []).slice(0, 5)) {
     if (removeItemByName(state, n)) log.push(`- ${n}`);
   }
+  const okFlags = allowedFlags(floor);
   for (const [k, v] of Object.entries(delta.flags && typeof delta.flags === 'object' ? delta.flags : {}).slice(0, 8)) {
-    if (/^[a-z0-9-]{1,40}$/.test(k)) { if (v) state.flags[k] = true; else delete state.flags[k]; }
+    if (!okFlags.includes(k)) continue; // ignore invented flags
+    if (v) { if (!state.flags[k]) log.push(`Flag: ${k}`); state.flags[k] = true; } else delete state.flags[k];
   }
   for (const id of (Array.isArray(delta.discover) ? delta.discover : []).slice(0, 3)) {
     if (discoverExit(state, floor, id)) log.push(`Discovered a way to ${roomById(floor, id).name}`);

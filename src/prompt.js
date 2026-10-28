@@ -1,5 +1,5 @@
 // DM prompt and per-turn message building.
-import { currentRoom, visibleExits, roomById } from './map.js';
+import { currentRoom, visibleExits, roomById, allowedFlags } from './map.js';
 import { rollDie, statMod } from './dice.js';
 
 export const DEFAULT_PROMPT = `You are THE SYSTEM, the snarky, bureaucratic AI game master of a deadly dungeon crawl TV show. The player is a human Crawler, alone.
@@ -13,9 +13,9 @@ STATE: the app owns numbers. You propose changes in a delta block; keep them sma
 OUTPUT FORMAT, always:
 1) The narration.
 2) Then exactly one block: <state>{...}</state> with only the fields that changed:
- hp (delta, e.g. -3), mp (delta), xp (delta 0-25), add_items [{name, tab (gear|consumable|junk|trinket|quest), effect}], remove_items [names], achievements [ids or names], loot_boxes [tier], room (id of a listed exit you moved the player to), discover [room ids of secret exits found], flags {name:true}, summary (only when asked).
+ hp (delta, e.g. -3), mp (delta), xp (delta 0-25), add_items [{name, tab (gear|consumable|junk|trinket|quest), effect}], remove_items [names], achievements [ids or names], loot_boxes [tier], room (id of a listed exit you moved the player to), discover [room ids of secret exits found], flags {name:true} (ONLY from the FLAGS ALLOWED list in the scene, only when the crawler truly obtains that key), summary (only when asked).
 Example: <state>{"hp":-2,"xp":5,"flags":{"has-badge":true}}</state>
-RULES: never kill the player in a single turn from full health. Always include the state block, even if empty: <state>{}</state>.`;
+ITEMS: add_items only when the crawler concretely finds or is handed something. Give it a specific, funny name (never 'Trinket', 'Item', 'Rag') and an effect of 10 words or fewer. Most loot comes from loot boxes, so be stingy: at most one item per turn.\nRULES: never kill the player in a single turn from full health. Always include the state block, even if empty: <state>{}</state>.`;
 
 export function rollPool(rng) {
   return { d20: [rollDie(20, rng), rollDie(20, rng), rollDie(20, rng)], d6: [rollDie(6, rng), rollDie(6, rng)] };
@@ -35,7 +35,8 @@ export function sceneBlock(state, floor) {
     `EXITS: ${exits}`,
     `CRAWLER: ${c.name}, ${c.cls} L${c.level}, HP ${c.hp}/${c.hpMax}, MP ${c.mp}/${c.mpMax}, stats ` +
       Object.entries(state.stats).map(([k, v]) => `${k} ${v}(${statMod(v) >= 0 ? '+' : ''}${statMod(v)})`).join(' '),
-    `FLAGS: ${Object.keys(state.flags).join(', ') || 'none'}`,
+    `FLAGS SET: ${Object.keys(state.flags).join(', ') || 'none'}`,
+    `FLAGS ALLOWED (the only ones you may set): ${allowedFlags(floor).join(', ')}`,
     `ITEMS: ${[...Object.values(state.inventory).flat(), ...state.trinkets.filter(Boolean)].map((i) => i.name).join(', ') || 'none'}`,
     `STORY SO FAR: ${state.summary || '(just started)'}`,
   ].join('\n');
