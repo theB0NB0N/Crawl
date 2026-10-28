@@ -74,11 +74,14 @@ export function tickTimer(state, floor) {
   return { events, log };
 }
 
-export async function takeTurn({ state, floor, data, action, key, model, prompt, rng = defaultRng, call = callModel }) {
+export async function takeTurn({ state, floor, data, action, key, model, prompt, rng = defaultRng, call = callModel, onDebug = () => {} }) {
   if (state.dead) throw new Error('You are dead. Start a new crawl.');
   const snap = structuredClone(state);
+  const t0 = Date.now();
+  const dbg = { turn: state.turn + 1, action, roomBefore: state.map.current, model };
   try {
     const dice = rollPool(rng);
+    dbg.dice = dice;
     const log = [];
     const extra = [];
     // Movement is decided in code, not by the model.
@@ -96,11 +99,14 @@ export async function takeTurn({ state, floor, data, action, key, model, prompt,
     const { events, log: tlog } = tickTimer(state, floor);
     log.push(...tlog);
     state.turn += 1;
+    dbg.extra = [...extra, ...events];
     let narration = '';
     if (!state.dead) {
       const messages = buildMessages({ prompt, state, floor, action, dice, events: [...extra, ...events] });
       const raw = await call({ key, model, messages }); // the one API call
+      dbg.raw = raw;
       const parsed = parseReply(raw);
+      dbg.delta = parsed.delta;
       narration = parsed.narration || '(The System stares at you in silence.)';
       const delta = parsed.delta && exit ? { ...parsed.delta, room: undefined } : parsed.delta;
       log.push(...applyDelta(state, floor, data, delta));
@@ -110,9 +116,11 @@ export async function takeTurn({ state, floor, data, action, key, model, prompt,
       narration = state.deathCause;
     }
     log.push(...checkCodeAchievements(state, data));
+    onDebug({ ...dbg, roomAfter: state.map.current, log, ms: Date.now() - t0 });
     return { narration, log, dice, needsSummary: state.turn % 10 === 0 };
   } catch (e) {
     // A failed turn costs nothing: restore everything.
+    onDebug({ ...dbg, roomAfter: snap.map.current, error: e.message, log: [], ms: Date.now() - t0 });
     for (const k of Object.keys(state)) delete state[k];
     Object.assign(state, snap);
     throw e;

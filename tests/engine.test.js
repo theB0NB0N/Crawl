@@ -75,3 +75,17 @@ test('failed call rolls the turn back', async () => {
   await assert.rejects(takeTurn({ state: s, floor, data, action: 'go to the cafeteria', key: 'k', model: 'm', prompt: 'p', call: async () => { throw new Error('boom'); } }));
   assert.equal(s.floor.turnsLeft, before); assert.equal(s.map.current, 'intake-hall'); assert.equal(s.turn, 0);
 });
+
+test('debug report captures turns and errors, never the key', async () => {
+  const { createDebug } = await import('../src/debug.js');
+  const { makeStorage } = await import('../src/state.js');
+  const dbg = createDebug(makeStorage());
+  const s = mk();
+  await takeTurn({ state: s, floor, data, action: 'go to the cafeteria', key: 'SECRETKEY', model: 'm', prompt: 'p', onDebug: (e) => dbg.record(e), call: async () => 'Ew.' });
+  await assert.rejects(takeTurn({ state: s, floor, data, action: 'look', key: 'SECRETKEY', model: 'm', prompt: 'p', onDebug: (e) => dbg.record(e), call: async () => { throw new Error('boom'); } }));
+  const rep = dbg.report(s, { model: 'm' });
+  assert.match(rep, /intake-hall -> cafeteria/);
+  assert.match(rep, /NONE \(state block missing/);
+  assert.match(rep, /ERROR: boom/);
+  assert.ok(!rep.includes('SECRETKEY'));
+});

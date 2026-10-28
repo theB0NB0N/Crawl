@@ -6,9 +6,11 @@ import { DEFAULT_PROMPT } from './prompt.js';
 import { checkCodeAchievements } from './achievements.js';
 import { openBox, addBox } from './loot.js';
 import { checkKey } from './openrouter.js';
+import { createDebug } from './debug.js';
 
 const store = makeStorage(globalThis.localStorage);
 const app = document.getElementById('app');
+const debug = createDebug(store);
 const ui = { tab: 'story', feed: [], busy: false, error: '', selClass: null };
 let data, state;
 
@@ -73,7 +75,7 @@ function topBar() {
   <div class="bar hp"><i style="width:${pct(c.hp, c.hpMax)}%"></i></div><span>${c.hp}</span>
   <div class="bar mp"><i style="width:${pct(c.mp, c.mpMax)}%"></i></div>
   <div class="bar xp"><i style="width:${pct(c.xp, xpToNext(c.level))}%"></i></div>
-  <span>T${state.floor.turnsLeft}</span></div>`;
+  <span>T${state.floor.turnsLeft}</span><button id="dbg" title="Copy debug report" style="background:none;border:0;font-size:16px">🐞</button></div>`;
 }
 
 function tabBar() {
@@ -137,6 +139,9 @@ function settingsView() {
   <p><button class="btn alt" id="setuplink">Copy setup link</button> <button class="btn alt" id="savelink">Copy save link</button></p>
   <p class="msg me">Links contain your key or save. Send them only to yourself (AirDrop, Messages) and treat them like a password.</p>
   <textarea id="linkout" rows="3" placeholder="If copying fails, the link appears here"></textarea>
+  <h2>Debug</h2>
+  <p><button class="btn alt" id="dbg2">Copy debug report</button> <button class="btn alt" id="dbgclear">Clear log</button></p>
+  <textarea id="dbgout" rows="4" placeholder="If copying fails, the report appears here"></textarea>
   <h2>Save</h2>
   <p><button class="btn alt" id="export">Export</button> <button class="btn alt" id="import">Import</button> <button class="btn alt" id="restart">New crawl</button></p>
   <textarea id="blob" rows="4" placeholder="Export/import text appears here"></textarea>`;
@@ -179,6 +184,18 @@ function bind() {
   const giveLink = async (url) => { $('linkout').value = url; $('keyout').textContent = (await copyText(url)) ? 'Link copied.' : 'Copy it from the box below.'; };
   if ($('setuplink')) $('setuplink').onclick = () => giveLink(`${baseUrl()}#setup=${enc({ key: $('key').value.trim(), model: $('model').value.trim(), prompt: $('prompt').value === DEFAULT_PROMPT ? undefined : $('prompt').value })}`);
   if ($('savelink')) $('savelink').onclick = () => giveLink(`${baseUrl()}#save=${enc(state)}`);
+  const doDebug = async () => {
+    const rep = debug.report(state, { model: model(), ua: navigator.userAgent });
+    const ok = await copyText(rep);
+    if ($('dbgout')) $('dbgout').value = rep;
+    else alert(ok ? 'Debug report copied.' : 'Copy failed. Open More > Debug.');
+    if (ok && $('dbgout')) $('dbgout').placeholder = 'Copied.';
+    if (ok && !$('dbgout')) return;
+    if ($('keyout')) $('keyout').textContent = ok ? 'Debug report copied.' : 'Copy failed: copy from the box.';
+  };
+  if ($('dbg')) $('dbg').onclick = doDebug;
+  if ($('dbg2')) $('dbg2').onclick = doDebug;
+  if ($('dbgclear')) $('dbgclear').onclick = () => { debug.clear(); $('dbgout').value = 'Log cleared.'; };
   if ($('export')) $('export').onclick = () => { $('blob').value = exportSave(state); };
   if ($('import')) $('import').onclick = () => { try { state = importSave($('blob').value); persist(); ui.tab = 'story'; render(); } catch (e) { alert(e.message); } };
 }
@@ -191,7 +208,7 @@ async function doTurn() {
   if (!key) { ui.error = 'Add your OpenRouter key in More.'; return render(); }
   ui.busy = true; ui.error = ''; ui.feed.push({ k: 'me', t: '> ' + action }); render();
   try {
-    const r = await takeTurn({ state, floor: floorData(), data, action, key, model: model(), prompt: store.get('crawl_prompt', DEFAULT_PROMPT) });
+    const r = await takeTurn({ state, floor: floorData(), data, action, key, model: model(), prompt: store.get('crawl_prompt', DEFAULT_PROMPT), onDebug: (e) => debug.record(e) });
     ui.feed.push({ k: 'dm', t: r.narration }, ...r.log.map((t) => ({ k: 'log', t })));
     persist();
   } catch (e) { ui.error = e.message; }
