@@ -12,6 +12,36 @@ const app = document.getElementById('app');
 const ui = { tab: 'story', feed: [], busy: false, error: '', selClass: null };
 let data, state;
 
+const enc = (o) => btoa(unescape(encodeURIComponent(JSON.stringify(o)))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+const dec = (t) => JSON.parse(decodeURIComponent(escape(atob(t.replace(/-/g, '+').replace(/_/g, '/')))));
+const baseUrl = () => location.origin + location.pathname;
+
+function applyHash() {
+  const h = location.hash.replace(/^#/, '');
+  const m = h.match(/^(setup|save)=(.+)$/);
+  if (!m) return '';
+  let msg = '';
+  try {
+    const o = dec(m[2]);
+    if (m[1] === 'setup') {
+      if (o.key) store.set('crawl_key', String(o.key));
+      if (o.model) store.set('crawl_model', String(o.model));
+      if (o.prompt) store.set('crawl_prompt', String(o.prompt));
+      msg = 'Setup loaded from link.';
+    } else {
+      state = importSave(JSON.stringify(o));
+      saveGame(store, state);
+      msg = 'Save loaded from link.';
+    }
+  } catch { msg = 'That link was not valid.'; }
+  history.replaceState(null, '', location.pathname + location.search);
+  return msg;
+}
+
+async function copyText(t) {
+  try { await navigator.clipboard.writeText(t); return true; } catch { return false; }
+}
+
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const floorData = () => data.floors[state.floor.number];
 const model = () => store.get('crawl_model', 'openrouter/free');
@@ -20,7 +50,9 @@ const pct = (a, b) => Math.max(0, Math.min(100, (a / b) * 100));
 async function init() {
   data = await loadData();
   state = loadGame(store);
-  if (state) ui.feed = [{ k: 'log', t: 'Save loaded.' }];
+  const hashMsg = applyHash();
+  if (state) ui.feed = [{ k: 'log', t: hashMsg || 'Save loaded.' }];
+  else if (hashMsg) ui.error = hashMsg;
   render();
   if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(() => {});
 }
@@ -101,6 +133,10 @@ function settingsView() {
   <p><button class="btn alt" id="check">Check key</button> <span id="keyout"></span></p>
   <p>DM prompt</p><textarea id="prompt" rows="10">${esc(store.get('crawl_prompt', DEFAULT_PROMPT))}</textarea>
   <p><button class="btn" id="saveset">Save settings</button> <button class="btn alt" id="resetp">Reset prompt</button></p>
+  <h2>Move to another device</h2>
+  <p><button class="btn alt" id="setuplink">Copy setup link</button> <button class="btn alt" id="savelink">Copy save link</button></p>
+  <p class="msg me">Links contain your key or save. Send them only to yourself (AirDrop, Messages) and treat them like a password.</p>
+  <textarea id="linkout" rows="3" placeholder="If copying fails, the link appears here"></textarea>
   <h2>Save</h2>
   <p><button class="btn alt" id="export">Export</button> <button class="btn alt" id="import">Import</button> <button class="btn alt" id="restart">New crawl</button></p>
   <textarea id="blob" rows="4" placeholder="Export/import text appears here"></textarea>`;
@@ -140,6 +176,9 @@ function bind() {
   if ($('saveset')) $('saveset').onclick = () => { store.set('crawl_key', $('key').value.trim()); store.set('crawl_model', $('model').value.trim()); store.set('crawl_prompt', $('prompt').value); $('keyout').textContent = 'Saved.'; };
   if ($('resetp')) $('resetp').onclick = () => { store.set('crawl_prompt', DEFAULT_PROMPT); render(); };
   if ($('check')) $('check').onclick = async () => { try { const d = await checkKey($('key').value.trim()); $('keyout').textContent = `OK. Limit ${d.limit ?? 'none'}, used ${d.usage}`; } catch (e) { $('keyout').textContent = e.message; } };
+  const giveLink = async (url) => { $('linkout').value = url; $('keyout').textContent = (await copyText(url)) ? 'Link copied.' : 'Copy it from the box below.'; };
+  if ($('setuplink')) $('setuplink').onclick = () => giveLink(`${baseUrl()}#setup=${enc({ key: $('key').value.trim(), model: $('model').value.trim(), prompt: $('prompt').value === DEFAULT_PROMPT ? undefined : $('prompt').value })}`);
+  if ($('savelink')) $('savelink').onclick = () => giveLink(`${baseUrl()}#save=${enc(state)}`);
   if ($('export')) $('export').onclick = () => { $('blob').value = exportSave(state); };
   if ($('import')) $('import').onclick = () => { try { state = importSave($('blob').value); persist(); ui.tab = 'story'; render(); } catch (e) { alert(e.message); } };
 }
