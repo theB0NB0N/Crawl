@@ -6,7 +6,7 @@ import { DEFAULT_PROMPT } from './prompt.js';
 import { checkCodeAchievements } from './achievements.js';
 import { openBox, addBox } from './loot.js';
 import { checkKey } from './openrouter.js';
-import { createDebug } from './debug.js';
+import { createDebug, BUILD } from './debug.js';
 
 const store = makeStorage(globalThis.localStorage);
 const app = document.getElementById('app');
@@ -75,7 +75,7 @@ function topBar() {
   <div class="bar hp"><i style="width:${pct(c.hp, c.hpMax)}%"></i></div><span>${c.hp}</span>
   <div class="bar mp"><i style="width:${pct(c.mp, c.mpMax)}%"></i></div>
   <div class="bar xp"><i style="width:${pct(c.xp, xpToNext(c.level))}%"></i></div>
-  <span>T${state.floor.turnsLeft}</span><button id="dbg" title="Copy debug report" style="background:none;border:0;font-size:16px">🐞</button></div>`;
+  <span>T${state.floor.turnsLeft}</span></div>`;
 }
 
 function tabBar() {
@@ -129,7 +129,10 @@ function achView() {
 }
 
 function settingsView() {
-  return `<h2>Settings</h2>
+  return `<h2>Debug <small style="color:var(--dim);font-weight:400">build ${BUILD}</small></h2>
+  <p><button class="btn alt" id="dbg2">Copy debug report</button> <button class="btn alt" id="dbgclear">Clear log</button></p>
+  <textarea id="dbgout" rows="4" placeholder="If copying fails, the report appears here"></textarea>
+  <h2>Settings</h2>
   <p>OpenRouter key</p><input id="key" type="password" value="${esc(store.get('crawl_key'))}">
   <p>Model</p><input id="model" value="${esc(model())}">
   <p><button class="btn alt" id="check">Check key</button> <span id="keyout"></span></p>
@@ -139,9 +142,6 @@ function settingsView() {
   <p><button class="btn alt" id="setuplink">Copy setup link</button> <button class="btn alt" id="savelink">Copy save link</button></p>
   <p class="msg me">Links contain your key or save. Send them only to yourself (AirDrop, Messages) and treat them like a password.</p>
   <textarea id="linkout" rows="3" placeholder="If copying fails, the link appears here"></textarea>
-  <h2>Debug</h2>
-  <p><button class="btn alt" id="dbg2">Copy debug report</button> <button class="btn alt" id="dbgclear">Clear log</button></p>
-  <textarea id="dbgout" rows="4" placeholder="If copying fails, the report appears here"></textarea>
   <h2>Save</h2>
   <p><button class="btn alt" id="export">Export</button> <button class="btn alt" id="import">Import</button> <button class="btn alt" id="restart">New crawl</button></p>
   <textarea id="blob" rows="4" placeholder="Export/import text appears here"></textarea>`;
