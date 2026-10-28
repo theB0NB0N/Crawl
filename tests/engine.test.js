@@ -1,0 +1,59 @@
+import { test } from 'node:test';
+import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
+import { loadData } from '../src/data.js';
+import { newGame } from '../src/state.js';
+import { parseReply } from '../src/parser.js';
+import { applyDelta, takeTurn, tickTimer } from '../src/engine.js';
+import { openBox, addBox } from '../src/loot.js';
+import { checkCodeAchievements } from '../src/achievements.js';
+import { mapView, canMove, moveTo } from '../src/map.js';
+
+const data = await loadData(async (n) => JSON.parse(readFileSync(new URL(`../data/${n}.json`, import.meta.url))));
+const floor = data.floors[1];
+const mk = () => newGame({ name: 'T', cls: data.classes[0], floor });
+
+test('parser handles tags, fences, think blocks, missing close', () => {
+  assert.deepEqual(parseReply('Hi <state>{"hp":-1}</state>').delta, { hp: -1 });
+  assert.deepEqual(parseReply('<think>x</think>Hi\n<state>```json\n{"xp":5,}\n```').delta, { xp: 5 });
+  assert.equal(parseReply('Just text').delta, null);
+});
+
+test('delta is clamped and no one-shots from full HP', () => {
+  const s = mk(); const hpMax = s.crawler.hpMax;
+  applyDelta(s, floor, data, { hp: -99 });
+  assert.ok(s.crawler.hp >= hpMax - 5 && !s.dead);
+});
+
+test('movement obeys exits and gates', () => {
+  const s = mk();
+  assert.equal(moveTo(s, floor, 'stairs-room').ok, false);
+  assert.equal(moveTo(s, floor, 'cafeteria').ok, true);
+  assert.equal(canMove(s, floor, 'intake-hall').ok, true);
+});
+
+test('fog of war hides unvisited names', () => {
+  const v = mapView(mk(), floor);
+  assert.ok(v.nodes.some((n) => n.label === '?'));
+  assert.ok(v.nodes.some((n) => n.current));
+});
+
+test('boxes open and achievements award', () => {
+  const s = mk(); addBox(s, 'gold', 't');
+  const r = openBox(s, data, 0); assert.ok(r.item.name);
+  assert.equal(s.counters.boxesOpened, 1);
+  checkCodeAchievements(s, data);
+  assert.ok(s.achievements.some((a) => a.id === 'registered'));
+});
+
+test('timer kills outside the stairs room', () => {
+  const s = mk(); s.floor.turnsLeft = 1; tickTimer(s, floor);
+  assert.equal(s.dead, true);
+});
+
+test('takeTurn makes exactly one call', async () => {
+  const s = mk(); let calls = 0;
+  const r = await takeTurn({ state: s, floor, data, action: 'look', key: 'k', model: 'm', prompt: 'p',
+    call: async () => { calls++; return 'You look.\n<state>{"xp":5}</state>'; } });
+  assert.equal(calls, 1); assert.ok(s.crawler.xp >= 5); assert.equal(r.narration, 'You look.');
+});

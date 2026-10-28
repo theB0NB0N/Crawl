@@ -1,0 +1,142 @@
+[
+ {
+  "id": "compensated-anarchist",
+  "name": "Compensated Anarchist",
+  "primary": "DEX",
+  "short": "Bombs and traps from junk.",
+  "hook": "Builds bombs and traps from junk; weak in a straight fight."
+ },
+ {
+  "id": "prizefighter",
+  "name": "Prizefighter",
+  "primary": "STR",
+  "short": "Fists, combos, no armor needed.",
+  "hook": "Combo strikes; bonus when unarmed and unarmored."
+ },
+ {
+  "id": "agent-provocateur",
+  "name": "Agent Provocateur",
+  "primary": "CHA",
+  "short": "Start fights between your enemies.",
+  "hook": "Bait enemies into fighting each other and frame rivals; trouble follows every room you enter."
+ },
+ {
+  "id": "origamist",
+  "name": "Origamist",
+  "primary": "INT",
+  "short": "Folds paper into one-use constructs.",
+  "hook": "Folds paper from scrolls, flyers, and junk into one-use constructs; running out of paper is the limit."
+ },
+ {
+  "id": "shieldmaiden",
+  "name": "Shieldmaiden",
+  "primary": "CON",
+  "short": "Block hits and shrug off damage.",
+  "hook": "Blocks reduce damage and protect pets."
+ },
+ {
+  "id": "football-hooligan",
+  "name": "Football Hooligan",
+  "primary": "STR",
+  "short": "Chaos, brawling, and property damage.",
+  "hook": "Chaos: extra damage when outnumbered, plus property damage."
+ },
+ {
+  "id": "roller-derby-jammer",
+  "name": "Roller Derby Jammer",
+  "primary": "DEX",
+  "short": "Fast, slippery, hard to hit.",
+  "hook": "High evasion; shoulder-checks knock enemies off balance."
+ },
+ {
+  "id": "monster-truck-driver",
+  "name": "Monster Truck Driver",
+  "primary": "STR",
+  "short": "Summon a truck. Run things over.",
+  "hook": "Summon a truck once per floor for a huge, loud charge."
+ },
+ {
+  "id": "shotgun-messenger",
+  "name": "Shotgun Messenger",
+  "primary": "DEX",
+  "short": "Big burst damage, few shells.",
+  "hook": "Burst damage from limited shells; reloading costs a turn."
+ },
+ {
+  "id": "beastmaster",
+  "name": "Beastmaster",
+  "primary": "CHA",
+  "short": "A tamed animal fights beside you.",
+  "hook": "A tamed animal companion that levels with you."
+ },
+ {
+  "id": "cartographer",
+  "name": "Cartographer",
+  "primary": "INT",
+  "short": "Reveals the map and finds secrets.",
+  "hook": "Reveals more of the fog-of-war map and spots secret rooms."
+ },
+ {
+  "id": "fire-mage-arcanist",
+  "name": "Fire Mage Arcanist",
+  "primary": "INT",
+  "short": "Strong fire magic. Mind your loot.",
+  "hook": "Strong fire spells; fire can burn your own loot."
+ },
+ {
+  "id": "blizzardmancer",
+  "name": "Blizzardmancer",
+  "primary": "INT",
+  "short": "Freeze and slow your enemies.",
+  "hook": "Freeze and slow enemies; control over raw damage."
+ },
+ {
+  "id": "necrobard",
+  "name": "NecroBard",
+  "primary": "CHA",
+  "short": "Songs that raise the dead.",
+  "hook": "Songs raise minions; performance checks."
+ },
+ {
+  "id": "animal-test-subject",
+  "name": "Animal Test Subject",
+  "primary": "CON",
+  "short": "Poison magic. You glow green.",
+  "hook": "Poison spells and poison immunity; you glow green, so stealth suffers."
+ },
+ {
+  "id": "boring-ol-mage",
+  "name": "Boring Ol' Mage",
+  "primary": "INT",
+  "short": "Pure spellcaster, cheap spells.",
+  "hook": "Pure caster with cheap spells and no weapon skills."
+ },
+ {
+  "id": "freelance-psychiatrist",
+  "name": "Freelance Psychiatrist",
+  "primary": "CHA",
+  "short": "Calm, confuse, or talk down foes.",
+  "hook": "Calm, confuse, or talk down enemies with mind skills."
+ },
+ {
+  "id": "gut-rearranger",
+  "name": "Gut Rearranger",
+  "primary": "DEX",
+  "short": "Field surgery and messy sneak attacks.",
+  "hook": "Field surgery heals you; sneak attacks get messy."
+ },
+ {
+  "id": "former-child-actor",
+  "name": "Former Child Actor",
+  "primary": "CHA",
+  "short": "Borrow a new class trick each floor.",
+  "hook": "Borrow a different class gimmick on each new floor."
+ },
+ {
+  "id": "banana-farmer",
+  "name": "Banana Farmer",
+  "primary": "CON",
+  "short": "Shoot seeds that grow into cover.",
+  "hook": "Shoot banana seeds that grow into cover, food, or distractions."
+ }
+]

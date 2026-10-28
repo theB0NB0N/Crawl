@@ -1,0 +1,2600 @@
+{
+ "version": 1,
+ "rarity": {
+  "1": "common (bronze and up)",
+  "2": "uncommon (silver and up)",
+  "3": "rare (gold and up)",
+  "4": "legendary only"
+ },
+ "items": [
+  {
+   "id": "rusty-nail",
+   "name": "Rusty Nail",
+   "tab": "junk",
+   "rarity": 1,
+   "tags": [
+    "trap",
+    "junk"
+   ],
+   "effect": "Jams a lock or a trap trigger",
+   "quip": "Tetanus with extra steps."
+  },
+  {
+   "id": "soggy-bandage",
+   "name": "Soggy Bandage",
+   "tab": "junk",
+   "rarity": 1,
+   "tags": [
+    "healing",
+    "gross"
+   ],
+   "effect": "Heals 1 HP, with a risk of infection flavor",
+   "quip": "Previously owned. Previously wet."
+  },
+  {
+   "id": "broken-mop-handle",
+   "name": "Broken Mop Handle",
+   "tab": "junk",
+   "rarity": 1,
+   "tags": [
+    "janitor",
+    "combat"
+   ],
+   "effect": "Improvised club; breaks after 3 uses",
+   "quip": "Janitorial excellence, now in pieces."
+  },
+  {
+   "id": "single-left-glove",
+   "name": "Single Left Glove",
+   "tab": "junk",
+   "rarity": 1,
+   "tags": [
+    "junk"
+   ],
+   "effect": "No use; throwable distraction",
+   "quip": "The right one is somebody else's problem."
+  },
+  {
+   "id": "bottle-cap-collection",
+   "name": "Bottle Cap Collection",
+   "tab": "junk",
+   "rarity": 1,
+   "tags": [
+    "shiny",
+    "junk"
+   ],
+   "effect": "Distraction: lures one shiny-loving enemy",
+   "quip": "Nobody asked for this."
+  },
+  {
+   "id": "chewed-pen",
+   "name": "Chewed Pen",
+   "tab": "junk",
+   "rarity": 1,
+   "tags": [
+    "junk",
+    "paper"
+   ],
+   "effect": "Can write or sign things",
+   "quip": "Slightly bitten, extremely authentic."
+  },
+  {
+   "id": "mystery-key",
+   "name": "Mystery Key",
+   "tab": "junk",
+   "rarity": 1,
+   "tags": [
+    "trap",
+    "escape"
+   ],
+   "effect": "Opens one random lock; fits nothing else",
+   "quip": "Opens something. Someday."
+  },
+  {
+   "id": "dented-tin-cup",
+   "name": "Dented Tin Cup",
+   "tab": "junk",
+   "rarity": 1,
+   "tags": [
+    "junk"
+   ],
+   "effect": "Carries water; clangs loudly if thrown",
+   "quip": "Crime scene souvenir."
+  },
+  {
+   "id": "half-a-sandwich",
+   "name": "Half a Sandwich",
+   "tab": "junk",
+   "rarity": 1,
+   "tags": [
+    "food",
+    "gross"
+   ],
+   "effect": "Eat for 2 HP, or lure an animal",
+   "quip": "Do not ask whose half."
+  },
+  {
+   "id": "cracked-monocle",
+   "name": "Cracked Monocle",
+   "tab": "junk",
+   "rarity": 2,
+   "tags": [
+    "social"
+   ],
+   "effect": "+1 to one social check, then breaks",
+   "quip": "Distinguished. Mostly."
+  },
+  {
+   "id": "coupon-for-nothing",
+   "name": "Coupon for Nothing",
+   "tab": "junk",
+   "rarity": 1,
+   "tags": [
+    "paper",
+    "social"
+   ],
+   "effect": "Fools a gullible NPC once",
+   "quip": "Expired yesterday."
+  },
+  {
+   "id": "bag-of-teeth",
+   "name": "Bag of Teeth",
+   "tab": "junk",
+   "rarity": 1,
+   "tags": [
+    "gross",
+    "beast"
+   ],
+   "effect": "Rattles; scares small creatures",
+   "quip": "Nobody has explained these teeth."
+  },
+  {
+   "id": "damp-matchbook",
+   "name": "Damp Matchbook",
+   "tab": "junk",
+   "rarity": 1,
+   "tags": [
+    "fire"
+   ],
+   "effect": "Lights a fire half the time",
+   "quip": "Optimism in paper form."
+  },
+  {
+   "id": "plastic-crown",
+   "name": "Plastic Crown",
+   "tab": "junk",
+   "rarity": 1,
+   "tags": [
+    "crowd",
+    "social"
+   ],
+   "effect": "Amuses the audience when worn",
+   "quip": "Royalty, but make it cheap."
+  },
+  {
+   "id": "rubber-chicken",
+   "name": "Rubber Chicken",
+   "tab": "junk",
+   "rarity": 2,
+   "tags": [
+    "crowd",
+    "social"
+   ],
+   "effect": "Distracts enemies, delights the audience",
+   "quip": "It has been through things."
+  },
+  {
+   "id": "bent-spoon",
+   "name": "Bent Spoon",
+   "tab": "junk",
+   "rarity": 1,
+   "tags": [
+    "junk"
+   ],
+   "effect": "Pries loose stones or bolts",
+   "quip": "Not the spoon you wanted."
+  },
+  {
+   "id": "lost-library-card",
+   "name": "Lost Library Card",
+   "tab": "junk",
+   "rarity": 1,
+   "tags": [
+    "paper"
+   ],
+   "effect": "No use; an origamist can fold it",
+   "quip": "Overdue since the collapse."
+  },
+  {
+   "id": "jar-of-unknown-pickles",
+   "name": "Jar of Unknown Pickles",
+   "tab": "junk",
+   "rarity": 1,
+   "tags": [
+    "food",
+    "gross"
+   ],
+   "effect": "Eat for 1 HP and a mild regret",
+   "quip": "Brined by a philosopher."
+  },
+  {
+   "id": "tangled-fairy-lights",
+   "name": "Tangled Fairy Lights",
+   "tab": "junk",
+   "rarity": 1,
+   "tags": [
+    "light"
+   ],
+   "effect": "Faint light for dark rooms, short duration",
+   "quip": "Festive menace."
+  },
+  {
+   "id": "broken-wristwatch",
+   "name": "Broken Wristwatch",
+   "tab": "junk",
+   "rarity": 1,
+   "tags": [
+    "junk"
+   ],
+   "effect": "Stuck at the minute you will remember",
+   "quip": "Right twice a day."
+  },
+  {
+   "id": "greasy-takeout-menu",
+   "name": "Greasy Takeout Menu",
+   "tab": "junk",
+   "rarity": 1,
+   "tags": [
+    "paper",
+    "food"
+   ],
+   "effect": "Foldable; reveals nothing",
+   "quip": "Nothing here is open."
+  },
+  {
+   "id": "empty-aerosol-can",
+   "name": "Empty Aerosol Can",
+   "tab": "junk",
+   "rarity": 1,
+   "tags": [
+    "fire",
+    "junk"
+   ],
+   "effect": "Throw to distract; explodes if heated",
+   "quip": "Hairspray in a previous life."
+  },
+  {
+   "id": "goblin-dentures",
+   "name": "Goblin Dentures",
+   "tab": "junk",
+   "rarity": 2,
+   "tags": [
+    "goblin",
+    "gross"
+   ],
+   "effect": "Wear to briefly confuse goblins",
+   "quip": "Fit is questionable."
+  },
+  {
+   "id": "wad-of-gum",
+   "name": "Wad of Gum",
+   "tab": "junk",
+   "rarity": 1,
+   "tags": [
+    "gross",
+    "escape"
+   ],
+   "effect": "Sticks one door shut or one foe's shoe",
+   "quip": "Chewed by heroes."
+  },
+  {
+   "id": "lucky-penny-unlucky",
+   "name": "Lucky Penny (Unlucky)",
+   "tab": "junk",
+   "rarity": 1,
+   "tags": [
+    "luck"
+   ],
+   "effect": "Once: flip for +1 or -1 to a check",
+   "quip": "Flip it. See what happens."
+  },
+  {
+   "id": "burnt-toast",
+   "name": "Burnt Toast",
+   "tab": "junk",
+   "rarity": 1,
+   "tags": [
+    "food"
+   ],
+   "effect": "Eat for 1 HP",
+   "quip": "Carbon-based sustenance."
+  },
+  {
+   "id": "cracked-phone",
+   "name": "Cracked Phone",
+   "tab": "junk",
+   "rarity": 1,
+   "tags": [
+    "junk",
+    "light"
+   ],
+   "effect": "Weak light for 5 turns",
+   "quip": "No signal. Never any signal."
+  },
+  {
+   "id": "gum-wrapper-origami",
+   "name": "Gum Wrapper Origami",
+   "tab": "junk",
+   "rarity": 1,
+   "tags": [
+    "paper"
+   ],
+   "effect": "Foldable; decorative",
+   "quip": "Tiny art. Tiny crime."
+  },
+  {
+   "id": "stack-of-receipts",
+   "name": "Stack of Receipts",
+   "tab": "junk",
+   "rarity": 1,
+   "tags": [
+    "paper"
+   ],
+   "effect": "Bait for a bureaucrat NPC",
+   "quip": "Proof of purchase of nothing."
+  },
+  {
+   "id": "fake-mustache",
+   "name": "Fake Mustache",
+   "tab": "junk",
+   "rarity": 1,
+   "tags": [
+    "social",
+    "stealth"
+   ],
+   "effect": "+1 to impersonate; falls off on a natural 1",
+   "quip": "Convincing. In the dark."
+  },
+  {
+   "id": "dusty-snow-globe",
+   "name": "Dusty Snow Globe",
+   "tab": "junk",
+   "rarity": 2,
+   "tags": [
+    "magic"
+   ],
+   "effect": "Shake for a tiny snowfall and mild cheer",
+   "quip": "Contains a miniature, very cold tragedy."
+  },
+  {
+   "id": "rusted-padlock",
+   "name": "Rusted Padlock",
+   "tab": "junk",
+   "rarity": 1,
+   "tags": [
+    "trap"
+   ],
+   "effect": "No key; can lock a door shut",
+   "quip": "Locks things. That is all."
+  },
+  {
+   "id": "dead-battery",
+   "name": "Dead Battery",
+   "tab": "junk",
+   "rarity": 1,
+   "tags": [
+    "junk"
+   ],
+   "effect": "No power; throwable",
+   "quip": "Out of power. Relatable."
+  },
+  {
+   "id": "greasy-rag",
+   "name": "Greasy Rag",
+   "tab": "junk",
+   "rarity": 1,
+   "tags": [
+    "fire",
+    "gross"
+   ],
+   "effect": "Fuel for fire; wipes things clean-ish",
+   "quip": "Flammable. Questionably clean."
+  },
+  {
+   "id": "mismatched-dice-set",
+   "name": "Mismatched Dice Set",
+   "tab": "junk",
+   "rarity": 1,
+   "tags": [
+    "luck"
+   ],
+   "effect": "Reroll one gambling check",
+   "quip": "Seven sides, sort of."
+  },
+  {
+   "id": "loose-teeth-human",
+   "name": "Loose Teeth (Human)",
+   "tab": "junk",
+   "rarity": 1,
+   "tags": [
+    "gross"
+   ],
+   "effect": "Throw as a distraction",
+   "quip": "Not yours. Hopefully."
+  },
+  {
+   "id": "crumpled-map-fragment",
+   "name": "Crumpled Map Fragment",
+   "tab": "junk",
+   "rarity": 1,
+   "tags": [
+    "map",
+    "paper"
+   ],
+   "effect": "Reveals half a nearby room",
+   "quip": "Half a map. Half the trouble."
+  },
+  {
+   "id": "fossilized-donut",
+   "name": "Fossilized Donut",
+   "tab": "junk",
+   "rarity": 1,
+   "tags": [
+    "food",
+    "junk"
+   ],
+   "effect": "Inedible; throws for 1 damage",
+   "quip": "Old. Hard. Delicious? No."
+  },
+  {
+   "id": "wet-cardboard-box",
+   "name": "Wet Cardboard Box",
+   "tab": "junk",
+   "rarity": 1,
+   "tags": [
+    "stealth",
+    "junk"
+   ],
+   "effect": "Hide inside once; fails if soaked",
+   "quip": "Box. Not a metaphor."
+  },
+  {
+   "id": "bag-of-marbles",
+   "name": "Bag of Marbles",
+   "tab": "junk",
+   "rarity": 1,
+   "tags": [
+    "trap",
+    "escape"
+   ],
+   "effect": "Scatter to trip pursuers",
+   "quip": "Clatter-clatter. Slip-slip."
+  },
+  {
+   "id": "stuffed-animal-singed",
+   "name": "Stuffed Animal (Singed)",
+   "tab": "junk",
+   "rarity": 1,
+   "tags": [
+    "junk",
+    "social"
+   ],
+   "effect": "Calms a child NPC; creeps everyone else",
+   "quip": "Hug. Burned. Hug."
+  },
+  {
+   "id": "plastic-sword",
+   "name": "Plastic Sword",
+   "tab": "junk",
+   "rarity": 1,
+   "tags": [
+    "combat",
+    "crowd"
+   ],
+   "effect": "Audience laughs; 0 damage",
+   "quip": "Imagination weapon."
+  },
+  {
+   "id": "burnt-out-lightbulb",
+   "name": "Burnt-Out Lightbulb",
+   "tab": "junk",
+   "rarity": 1,
+   "tags": [
+    "junk"
+   ],
+   "effect": "Throw to crash for a distraction",
+   "quip": "Lights out."
+  },
+  {
+   "id": "used-gift-card",
+   "name": "Used Gift Card",
+   "tab": "junk",
+   "rarity": 1,
+   "tags": [
+    "paper"
+   ],
+   "effect": "No balance; fools a dim NPC",
+   "quip": "Zero balance, 100% charm."
+  },
+  {
+   "id": "cursed-doll-head",
+   "name": "Cursed Doll Head",
+   "tab": "junk",
+   "rarity": 2,
+   "tags": [
+    "undead",
+    "gross"
+   ],
+   "effect": "Whispers; creeps enemies; unlucky",
+   "quip": "Not even a whole doll."
+  },
+  {
+   "id": "mystery-meat-skewer",
+   "name": "Mystery Meat Skewer",
+   "tab": "consumable",
+   "rarity": 1,
+   "tags": [
+    "food",
+    "gross"
+   ],
+   "effect": "Heal 4 HP; 20% chance of a bad stomach",
+   "quip": "Source: unspecified. Flavor: unspecified."
+  },
+  {
+   "id": "bandage-roll",
+   "name": "Bandage Roll",
+   "tab": "consumable",
+   "rarity": 1,
+   "tags": [
+    "healing"
+   ],
+   "effect": "Heal 5 HP",
+   "quip": "Clean-ish. Better than before."
+  },
+  {
+   "id": "healing-draught-weak",
+   "name": "Healing Draught (Weak)",
+   "tab": "consumable",
+   "rarity": 1,
+   "tags": [
+    "healing",
+    "magic"
+   ],
+   "effect": "Heal 8 HP",
+   "quip": "Tastes like cough syrup and regret."
+  },
+  {
+   "id": "healing-draught",
+   "name": "Healing Draught",
+   "tab": "consumable",
+   "rarity": 2,
+   "tags": [
+    "healing",
+    "magic"
+   ],
+   "effect": "Heal 15 HP",
+   "quip": "Now with fewer side effects."
+  },
+  {
+   "id": "healing-draught-fancy",
+   "name": "Healing Draught (Fancy)",
+   "tab": "consumable",
+   "rarity": 3,
+   "tags": [
+    "healing",
+    "magic"
+   ],
+   "effect": "Heal 30 HP",
+   "quip": "Sponsored by someone with money."
+  },
+  {
+   "id": "mana-fizz",
+   "name": "Mana Fizz",
+   "tab": "consumable",
+   "rarity": 1,
+   "tags": [
+    "magic"
+   ],
+   "effect": "Restore 5 MP",
+   "quip": "Bubbly. Slightly radioactive."
+  },
+  {
+   "id": "mana-tonic",
+   "name": "Mana Tonic",
+   "tab": "consumable",
+   "rarity": 2,
+   "tags": [
+    "magic"
+   ],
+   "effect": "Restore 12 MP",
+   "quip": "Tastes like the color blue."
+  },
+  {
+   "id": "energy-bar-expired",
+   "name": "Energy Bar (Expired)",
+   "tab": "consumable",
+   "rarity": 1,
+   "tags": [
+    "food"
+   ],
+   "effect": "Heal 3 HP, then -1 to your next check",
+   "quip": "Expired, but so is your patience."
+  },
+  {
+   "id": "smoke-pellet",
+   "name": "Smoke Pellet",
+   "tab": "consumable",
+   "rarity": 1,
+   "tags": [
+    "escape",
+    "stealth"
+   ],
+   "effect": "Escape one fight if not cornered",
+   "quip": "Cough politely and leave."
+  },
+  {
+   "id": "firecracker-string",
+   "name": "Firecracker String",
+   "tab": "consumable",
+   "rarity": 1,
+   "tags": [
+    "fire",
+    "combat"
+   ],
+   "effect": "Stuns small enemies for one turn",
+   "quip": "Loud. Very loud."
+  },
+  {
+   "id": "flash-powder",
+   "name": "Flash Powder",
+   "tab": "consumable",
+   "rarity": 2,
+   "tags": [
+    "stealth",
+    "escape"
+   ],
+   "effect": "Blinds enemies for one turn",
+   "quip": "Close your eyes. Or don't."
+  },
+  {
+   "id": "oil-flask",
+   "name": "Oil Flask",
+   "tab": "consumable",
+   "rarity": 1,
+   "tags": [
+    "fire",
+    "trap"
+   ],
+   "effect": "Slippery floor, or fuel for fire",
+   "quip": "Slippery when wet. Also when not."
+  },
+  {
+   "id": "antidote-vial",
+   "name": "Antidote Vial",
+   "tab": "consumable",
+   "rarity": 1,
+   "tags": [
+    "poison",
+    "healing"
+   ],
+   "effect": "Cures poison",
+   "quip": "Taste it. It tastes like punishment."
+  },
+  {
+   "id": "poison-dart",
+   "name": "Poison Dart",
+   "tab": "consumable",
+   "rarity": 2,
+   "tags": [
+    "poison",
+    "combat"
+   ],
+   "effect": "Poisons one enemy: 2 damage a turn for 3 turns",
+   "quip": "Targets may complain."
+  },
+  {
+   "id": "throwing-knives-3",
+   "name": "Throwing Knives (3)",
+   "tab": "consumable",
+   "rarity": 2,
+   "tags": [
+    "combat"
+   ],
+   "effect": "Three ranged attacks at +1",
+   "quip": "Pointy. No returns."
+  },
+  {
+   "id": "rope-50-ft",
+   "name": "Rope (50 ft)",
+   "tab": "consumable",
+   "rarity": 1,
+   "tags": [
+    "escape",
+    "trap"
+   ],
+   "effect": "Climb, bind, or rig a trap",
+   "quip": "Dependable. Unlike you."
+  },
+  {
+   "id": "disposable-lockpicks",
+   "name": "Disposable Lockpicks",
+   "tab": "consumable",
+   "rarity": 1,
+   "tags": [
+    "stealth"
+   ],
+   "effect": "One lock opens automatically",
+   "quip": "Disposable, like most of your plans."
+  },
+  {
+   "id": "blessed-bread",
+   "name": "Blessed Bread",
+   "tab": "consumable",
+   "rarity": 2,
+   "tags": [
+    "healing"
+   ],
+   "effect": "Heal 10 HP and remove one minor curse",
+   "quip": "Holy. Mostly carbs."
+  },
+  {
+   "id": "rage-pepper",
+   "name": "Rage Pepper",
+   "tab": "consumable",
+   "rarity": 2,
+   "tags": [
+    "combat"
+   ],
+   "effect": "+2 damage for 3 turns, then -1 for 3",
+   "quip": "Spicy. Regrettable."
+  },
+  {
+   "id": "liquid-courage",
+   "name": "Liquid Courage",
+   "tab": "consumable",
+   "rarity": 1,
+   "tags": [
+    "social"
+   ],
+   "effect": "+2 to social checks next scene, -1 to awareness",
+   "quip": "Drink responsibly. Or not."
+  },
+  {
+   "id": "invisibility-mist",
+   "name": "Invisibility Mist",
+   "tab": "consumable",
+   "rarity": 3,
+   "tags": [
+    "stealth",
+    "magic"
+   ],
+   "effect": "Invisible for 3 turns",
+   "quip": "The audience can still see you. Rude."
+  },
+  {
+   "id": "elixir-of-not-dying",
+   "name": "Elixir of Not-Dying",
+   "tab": "consumable",
+   "rarity": 3,
+   "tags": [
+    "healing",
+    "magic"
+   ],
+   "effect": "Auto-revive once at 10 HP",
+   "quip": "Fine print: one use. No refunds."
+  },
+  {
+   "id": "teleport-chalk",
+   "name": "Teleport Chalk",
+   "tab": "consumable",
+   "rarity": 3,
+   "tags": [
+    "escape",
+    "magic"
+   ],
+   "effect": "Draw a circle and teleport to the safe room",
+   "quip": "Handle with chalky care."
+  },
+  {
+   "id": "distraction-doll",
+   "name": "Distraction Doll",
+   "tab": "consumable",
+   "rarity": 2,
+   "tags": [
+    "escape",
+    "social"
+   ],
+   "effect": "Enemies attack it for 2 turns",
+   "quip": "It is not a person. Probably."
+  },
+  {
+   "id": "food-ration",
+   "name": "Food Ration",
+   "tab": "consumable",
+   "rarity": 1,
+   "tags": [
+    "food"
+   ],
+   "effect": "Heal 6 HP out of combat",
+   "quip": "Edible, technically."
+  },
+  {
+   "id": "glow-stick",
+   "name": "Glow Stick",
+   "tab": "consumable",
+   "rarity": 1,
+   "tags": [
+    "light"
+   ],
+   "effect": "Light for 20 turns",
+   "quip": "A party in your pocket."
+  },
+  {
+   "id": "frost-flask",
+   "name": "Frost Flask",
+   "tab": "consumable",
+   "rarity": 2,
+   "tags": [
+    "ice",
+    "combat"
+   ],
+   "effect": "Slows one enemy for 3 turns",
+   "quip": "Cold. Rude. Effective."
+  },
+  {
+   "id": "stink-bomb",
+   "name": "Stink Bomb",
+   "tab": "consumable",
+   "rarity": 1,
+   "tags": [
+    "gross",
+    "escape"
+   ],
+   "effect": "Enemies avoid the room for 3 turns",
+   "quip": "The pleasant kind of unpleasant. No, the other one."
+  },
+  {
+   "id": "scroll-of-detect-traps",
+   "name": "Scroll of Detect Traps",
+   "tab": "consumable",
+   "rarity": 2,
+   "tags": [
+    "trap",
+    "magic"
+   ],
+   "effect": "Reveals traps in the current room",
+   "quip": "Paper boasting of competence."
+  },
+  {
+   "id": "lucky-charm-cookie",
+   "name": "Lucky Charm Cookie",
+   "tab": "consumable",
+   "rarity": 2,
+   "tags": [
+    "luck",
+    "food"
+   ],
+   "effect": "Reroll one failed check",
+   "quip": "Fortune included, unlike dental."
+  },
+  {
+   "id": "tin-of-sardines",
+   "name": "Tin of Sardines",
+   "tab": "consumable",
+   "rarity": 1,
+   "tags": [
+    "food"
+   ],
+   "effect": "Heal 3 HP; attracts cats",
+   "quip": "A cat's best friend."
+  },
+  {
+   "id": "pocket-sand",
+   "name": "Pocket Sand",
+   "tab": "consumable",
+   "rarity": 1,
+   "tags": [
+    "combat",
+    "social"
+   ],
+   "effect": "Blinds a foe for one turn; counts as cheating",
+   "quip": "Ethics left at the door."
+  },
+  {
+   "id": "crude-bomb",
+   "name": "Crude Bomb",
+   "tab": "consumable",
+   "rarity": 2,
+   "tags": [
+    "fire",
+    "trap",
+    "combat"
+   ],
+   "effect": "8 damage to a room; may hurt you",
+   "quip": "The fuse is a suggestion."
+  },
+  {
+   "id": "fancy-bomb",
+   "name": "Fancy Bomb",
+   "tab": "consumable",
+   "rarity": 3,
+   "tags": [
+    "fire",
+    "combat"
+   ],
+   "effect": "15 damage to a room; never hurts you",
+   "quip": "Sponsor-approved destruction."
+  },
+  {
+   "id": "battle-banner",
+   "name": "Battle Banner",
+   "tab": "consumable",
+   "rarity": 2,
+   "tags": [
+    "combat",
+    "crowd"
+   ],
+   "effect": "+1 to all checks for a fight; audience cheers",
+   "quip": "Fabric of heroism. Mostly fabric."
+  },
+  {
+   "id": "mini-barricade-kit",
+   "name": "Mini Barricade Kit",
+   "tab": "consumable",
+   "rarity": 2,
+   "tags": [
+    "trap"
+   ],
+   "effect": "Blocks a door for 5 turns",
+   "quip": "Some assembly required. Mostly screaming."
+  },
+  {
+   "id": "hangover-cure",
+   "name": "Hangover Cure",
+   "tab": "consumable",
+   "rarity": 1,
+   "tags": [
+    "healing"
+   ],
+   "effect": "Removes one minor debuff",
+   "quip": "Works on all regrets. Except yours."
+  },
+  {
+   "id": "cold-pizza-slice",
+   "name": "Cold Pizza Slice",
+   "tab": "consumable",
+   "rarity": 1,
+   "tags": [
+    "food"
+   ],
+   "effect": "Heal 4 HP; morale up",
+   "quip": "Cold pizza is still pizza."
+  },
+  {
+   "id": "rusty-dagger",
+   "name": "Rusty Dagger",
+   "tab": "gear",
+   "rarity": 1,
+   "tags": [
+    "combat",
+    "stealth"
+   ],
+   "effect": "+0 damage; +1 on sneak attacks",
+   "quip": "Stabbing, but make it sad.",
+   "slot": "weapon"
+  },
+  {
+   "id": "wooden-club",
+   "name": "Wooden Club",
+   "tab": "gear",
+   "rarity": 1,
+   "tags": [
+    "combat"
+   ],
+   "effect": "+1 damage",
+   "quip": "Blunt subtlety.",
+   "slot": "weapon"
+  },
+  {
+   "id": "kitchen-knife",
+   "name": "Kitchen Knife",
+   "tab": "gear",
+   "rarity": 1,
+   "tags": [
+    "combat",
+    "food"
+   ],
+   "effect": "+0 damage; also cooks",
+   "quip": "Culinary offense.",
+   "slot": "weapon"
+  },
+  {
+   "id": "frying-pan",
+   "name": "Frying Pan",
+   "tab": "gear",
+   "rarity": 1,
+   "tags": [
+    "combat",
+    "food"
+   ],
+   "effect": "+1 damage; stuns on a crit",
+   "quip": "Culinary arts, culinary violence.",
+   "slot": "weapon"
+  },
+  {
+   "id": "cracked-baseball-bat",
+   "name": "Cracked Baseball Bat",
+   "tab": "gear",
+   "rarity": 1,
+   "tags": [
+    "combat"
+   ],
+   "effect": "+1 damage; breaks on a crit",
+   "quip": "Hit the ball. Hit everything.",
+   "slot": "weapon"
+  },
+  {
+   "id": "fire-axe",
+   "name": "Fire Axe",
+   "tab": "gear",
+   "rarity": 2,
+   "tags": [
+    "combat",
+    "fire"
+   ],
+   "effect": "+2 damage against doors and wood",
+   "quip": "Break glass in case of dungeon.",
+   "slot": "weapon"
+  },
+  {
+   "id": "crowbar",
+   "name": "Crowbar",
+   "tab": "gear",
+   "rarity": 1,
+   "tags": [
+    "combat",
+    "trap"
+   ],
+   "effect": "+1 damage; opens stuck things",
+   "quip": "Opens doors and opinions.",
+   "slot": "weapon"
+  },
+  {
+   "id": "wrench",
+   "name": "Wrench",
+   "tab": "gear",
+   "rarity": 1,
+   "tags": [
+    "combat",
+    "trap"
+   ],
+   "effect": "+1 to trap and pipe checks",
+   "quip": "Tool for the discerning plumber.",
+   "slot": "weapon"
+  },
+  {
+   "id": "pocket-pistol",
+   "name": "Pocket Pistol",
+   "tab": "gear",
+   "rarity": 2,
+   "tags": [
+    "combat"
+   ],
+   "effect": "Ranged 6 damage; 3 shots",
+   "quip": "Small gun. Big attitude.",
+   "slot": "weapon"
+  },
+  {
+   "id": "sawed-off-shotgun",
+   "name": "Sawed-off Shotgun",
+   "tab": "gear",
+   "rarity": 2,
+   "tags": [
+    "combat"
+   ],
+   "effect": "Ranged 10 spread damage; 2 shells",
+   "quip": "Short and decisive.",
+   "slot": "weapon"
+  },
+  {
+   "id": "crossbow",
+   "name": "Crossbow",
+   "tab": "gear",
+   "rarity": 2,
+   "tags": [
+    "combat"
+   ],
+   "effect": "Ranged 7 damage; reloading costs a turn",
+   "quip": "Reloading is a lifestyle.",
+   "slot": "weapon"
+  },
+  {
+   "id": "longbow",
+   "name": "Longbow",
+   "tab": "gear",
+   "rarity": 2,
+   "tags": [
+    "combat"
+   ],
+   "effect": "Ranged 6 damage; no reload",
+   "quip": "Archery in leather.",
+   "slot": "weapon"
+  },
+  {
+   "id": "sling",
+   "name": "Sling",
+   "tab": "gear",
+   "rarity": 1,
+   "tags": [
+    "combat"
+   ],
+   "effect": "Ranged 3 damage; cheap ammo",
+   "quip": "David would approve.",
+   "slot": "weapon"
+  },
+  {
+   "id": "spiked-mace",
+   "name": "Spiked Mace",
+   "tab": "gear",
+   "rarity": 2,
+   "tags": [
+    "combat"
+   ],
+   "effect": "+2 damage; heavy",
+   "quip": "Maces: the original dentists.",
+   "slot": "weapon"
+  },
+  {
+   "id": "war-hammer",
+   "name": "War Hammer",
+   "tab": "gear",
+   "rarity": 2,
+   "tags": [
+    "combat"
+   ],
+   "effect": "+2 damage against armored foes",
+   "quip": "Armor: not a refund policy.",
+   "slot": "weapon"
+  },
+  {
+   "id": "short-sword",
+   "name": "Short Sword",
+   "tab": "gear",
+   "rarity": 1,
+   "tags": [
+    "combat"
+   ],
+   "effect": "+1 damage",
+   "quip": "The reliable middle child.",
+   "slot": "weapon"
+  },
+  {
+   "id": "longsword",
+   "name": "Longsword",
+   "tab": "gear",
+   "rarity": 2,
+   "tags": [
+    "combat"
+   ],
+   "effect": "+2 damage",
+   "quip": "Reliability with an edge.",
+   "slot": "weapon"
+  },
+  {
+   "id": "rapier",
+   "name": "Rapier",
+   "tab": "gear",
+   "rarity": 2,
+   "tags": [
+    "combat"
+   ],
+   "effect": "+1 damage; +2 on crits",
+   "quip": "Fencing with sass.",
+   "slot": "weapon"
+  },
+  {
+   "id": "spear",
+   "name": "Spear",
+   "tab": "gear",
+   "rarity": 1,
+   "tags": [
+    "combat"
+   ],
+   "effect": "Reach: strike first in a corridor",
+   "quip": "Poke: effective, rude.",
+   "slot": "weapon"
+  },
+  {
+   "id": "boomerang",
+   "name": "Boomerang",
+   "tab": "gear",
+   "rarity": 2,
+   "tags": [
+    "combat"
+   ],
+   "effect": "Ranged 4 damage; returns; may hit you on a natural 1",
+   "quip": "Aussie engineering.",
+   "slot": "weapon"
+  },
+  {
+   "id": "throwing-axes",
+   "name": "Throwing Axes",
+   "tab": "gear",
+   "rarity": 2,
+   "tags": [
+    "combat"
+   ],
+   "effect": "Two throws at 6 damage each",
+   "quip": "Do not pull out of the wall.",
+   "slot": "weapon"
+  },
+  {
+   "id": "electric-cattle-prod",
+   "name": "Electric Cattle Prod",
+   "tab": "gear",
+   "rarity": 2,
+   "tags": [
+    "combat"
+   ],
+   "effect": "+1 damage; stuns on a crit",
+   "quip": "Persuasion by volts.",
+   "slot": "weapon"
+  },
+  {
+   "id": "chainsaw-fuel-low",
+   "name": "Chainsaw (Fuel Low)",
+   "tab": "gear",
+   "rarity": 3,
+   "tags": [
+    "combat"
+   ],
+   "effect": "+4 damage; 5 uses",
+   "quip": "Needs gas. Needs courage.",
+   "slot": "weapon"
+  },
+  {
+   "id": "katana-of-questionable-origin",
+   "name": "Katana of Questionable Origin",
+   "tab": "gear",
+   "rarity": 3,
+   "tags": [
+    "combat"
+   ],
+   "effect": "+3 damage",
+   "quip": "Folded 1,000 times. Citation needed.",
+   "slot": "weapon"
+  },
+  {
+   "id": "wand-of-minor-mischief",
+   "name": "Wand of Minor Mischief",
+   "tab": "gear",
+   "rarity": 2,
+   "tags": [
+    "magic",
+    "combat"
+   ],
+   "effect": "Cast a 4-damage zap for 5 MP",
+   "quip": "Does what it says.",
+   "slot": "weapon"
+  },
+  {
+   "id": "staff-of-mild-inconvenience",
+   "name": "Staff of Mild Inconvenience",
+   "tab": "gear",
+   "rarity": 2,
+   "tags": [
+    "magic"
+   ],
+   "effect": "+2 to spell checks",
+   "quip": "Walking stick, now magical.",
+   "slot": "weapon"
+  },
+  {
+   "id": "moldy-spellbook",
+   "name": "Moldy Spellbook",
+   "tab": "gear",
+   "rarity": 2,
+   "tags": [
+    "magic"
+   ],
+   "effect": "+1 INT checks; one random spell per use",
+   "quip": "Smells like wizard.",
+   "slot": "weapon"
+  },
+  {
+   "id": "magic-missile-launcher",
+   "name": "Magic Missile Launcher",
+   "tab": "gear",
+   "rarity": 3,
+   "tags": [
+    "magic",
+    "combat"
+   ],
+   "effect": "Ranged 8 damage; never misses",
+   "quip": "Missile included.",
+   "slot": "weapon"
+  },
+  {
+   "id": "scepter-of-stage-presence",
+   "name": "Scepter of Stage Presence",
+   "tab": "gear",
+   "rarity": 3,
+   "tags": [
+    "crowd",
+    "magic"
+   ],
+   "effect": "+2 CHA checks; audience hype",
+   "quip": "Hold it high. Yes, like that.",
+   "slot": "weapon"
+  },
+  {
+   "id": "the-final-mop",
+   "name": "The Final Mop",
+   "tab": "gear",
+   "rarity": 4,
+   "tags": [
+    "janitor",
+    "combat"
+   ],
+   "effect": "+4 damage; ignores 1 armor",
+   "quip": "Forged in suds. Wielded in rage.",
+   "slot": "weapon"
+  },
+  {
+   "id": "leather-jacket",
+   "name": "Leather Jacket",
+   "tab": "gear",
+   "rarity": 1,
+   "tags": [
+    "combat"
+   ],
+   "effect": "Reduces damage by 1",
+   "quip": "Tough image, thin leather.",
+   "slot": "body"
+  },
+  {
+   "id": "cardboard-armor",
+   "name": "Cardboard Armor",
+   "tab": "gear",
+   "rarity": 1,
+   "tags": [
+    "junk"
+   ],
+   "effect": "Reduces damage by 1; ruined by fire or water",
+   "quip": "Premium packaging.",
+   "slot": "body"
+  },
+  {
+   "id": "chain-shirt",
+   "name": "Chain Shirt",
+   "tab": "gear",
+   "rarity": 2,
+   "tags": [
+    "combat"
+   ],
+   "effect": "Reduces damage by 2",
+   "quip": "Rings. So many rings.",
+   "slot": "body"
+  },
+  {
+   "id": "hockey-pads",
+   "name": "Hockey Pads",
+   "tab": "gear",
+   "rarity": 1,
+   "tags": [
+    "combat"
+   ],
+   "effect": "Reduces damage by 1; -1 stealth",
+   "quip": "Hockey? In a dungeon?",
+   "slot": "body"
+  },
+  {
+   "id": "used-bulletproof-vest",
+   "name": "Used Bulletproof Vest",
+   "tab": "gear",
+   "rarity": 2,
+   "tags": [
+    "combat"
+   ],
+   "effect": "Reduces ranged damage by 3",
+   "quip": "Previously owned, previously perforated.",
+   "slot": "body"
+  },
+  {
+   "id": "dented-plate-armor",
+   "name": "Dented Plate Armor",
+   "tab": "gear",
+   "rarity": 3,
+   "tags": [
+    "combat"
+   ],
+   "effect": "Reduces damage by 3; -2 stealth",
+   "quip": "Dented, but dignified.",
+   "slot": "body"
+  },
+  {
+   "id": "janitor-s-jumpsuit",
+   "name": "Janitor's Jumpsuit",
+   "tab": "gear",
+   "rarity": 1,
+   "tags": [
+    "janitor",
+    "stealth"
+   ],
+   "effect": "+1 to blend in with staff",
+   "quip": "Name tag included.",
+   "slot": "body"
+  },
+  {
+   "id": "tuxedo",
+   "name": "Tuxedo",
+   "tab": "gear",
+   "rarity": 2,
+   "tags": [
+    "social"
+   ],
+   "effect": "+2 CHA checks; ruined in combat",
+   "quip": "Dressed to impress and be stabbed.",
+   "slot": "body"
+  },
+  {
+   "id": "hawaiian-shirt",
+   "name": "Hawaiian Shirt",
+   "tab": "gear",
+   "rarity": 1,
+   "tags": [
+    "social",
+    "crowd"
+   ],
+   "effect": "Audience approves; -1 stealth",
+   "quip": "Colorful. Visible from orbit.",
+   "slot": "body"
+  },
+  {
+   "id": "wizard-robe",
+   "name": "Wizard Robe",
+   "tab": "gear",
+   "rarity": 2,
+   "tags": [
+    "magic"
+   ],
+   "effect": "+1 INT; -1 DEX",
+   "quip": "Floaty, drafty, mystical.",
+   "slot": "body"
+  },
+  {
+   "id": "trench-coat",
+   "name": "Trench Coat",
+   "tab": "gear",
+   "rarity": 2,
+   "tags": [
+    "stealth"
+   ],
+   "effect": "+1 stealth; hides 2 items",
+   "quip": "The mysterious part is the lining.",
+   "slot": "body"
+  },
+  {
+   "id": "bathrobe-of-valor",
+   "name": "Bathrobe of Valor",
+   "tab": "gear",
+   "rarity": 1,
+   "tags": [
+    "social"
+   ],
+   "effect": "+1 to morale checks",
+   "quip": "Fluffy and fearless.",
+   "slot": "body"
+  },
+  {
+   "id": "armor-of-the-unpaid-intern",
+   "name": "Armor of the Unpaid Intern",
+   "tab": "gear",
+   "rarity": 4,
+   "tags": [
+    "combat"
+   ],
+   "effect": "Reduces damage by 4; once per floor, survive a lethal hit at 1 HP",
+   "quip": "Overqualified, still unpaid.",
+   "slot": "body"
+  },
+  {
+   "id": "bike-helmet",
+   "name": "Bike Helmet",
+   "tab": "gear",
+   "rarity": 1,
+   "tags": [
+    "combat"
+   ],
+   "effect": "Reduces head-hit damage by 1",
+   "quip": "Safety first, style never.",
+   "slot": "head"
+  },
+  {
+   "id": "colander",
+   "name": "Colander",
+   "tab": "gear",
+   "rarity": 1,
+   "tags": [
+    "junk",
+    "magic"
+   ],
+   "effect": "Immune to mind control once",
+   "quip": "Keeps thoughts in. Or out.",
+   "slot": "head"
+  },
+  {
+   "id": "pirate-hat",
+   "name": "Pirate Hat",
+   "tab": "gear",
+   "rarity": 1,
+   "tags": [
+    "crowd"
+   ],
+   "effect": "+1 CHA; audience goes arr",
+   "quip": "Arr. As in \"are you serious.\"",
+   "slot": "head"
+  },
+  {
+   "id": "miner-s-helmet",
+   "name": "Miner's Helmet",
+   "tab": "gear",
+   "rarity": 2,
+   "tags": [
+    "light"
+   ],
+   "effect": "Light in dark rooms; +1 to find traps",
+   "quip": "Lamp included, headache sold separately.",
+   "slot": "head"
+  },
+  {
+   "id": "tinfoil-hat",
+   "name": "Tinfoil Hat",
+   "tab": "gear",
+   "rarity": 1,
+   "tags": [
+    "magic",
+    "junk"
+   ],
+   "effect": "Immune to psionics once",
+   "quip": "Technically science.",
+   "slot": "head"
+  },
+  {
+   "id": "crown-of-mediocre-kings",
+   "name": "Crown of Mediocre Kings",
+   "tab": "gear",
+   "rarity": 2,
+   "tags": [
+    "social"
+   ],
+   "effect": "+1 CHA; NPCs expect favors",
+   "quip": "Weight of expectation.",
+   "slot": "head"
+  },
+  {
+   "id": "gas-mask",
+   "name": "Gas Mask",
+   "tab": "gear",
+   "rarity": 2,
+   "tags": [
+    "poison"
+   ],
+   "effect": "Immune to gas and spores",
+   "quip": "Rebreather, not regretter.",
+   "slot": "head"
+  },
+  {
+   "id": "welding-mask",
+   "name": "Welding Mask",
+   "tab": "gear",
+   "rarity": 2,
+   "tags": [
+    "fire"
+   ],
+   "effect": "Immune to blinding once",
+   "quip": "Safe visuals.",
+   "slot": "head"
+  },
+  {
+   "id": "crown-of-eternal-subscription",
+   "name": "Crown of Eternal Subscription",
+   "tab": "gear",
+   "rarity": 4,
+   "tags": [
+    "crowd"
+   ],
+   "effect": "+3 CHA; audience hype never fades",
+   "quip": "Cancel anytime. You cannot.",
+   "slot": "head"
+  },
+  {
+   "id": "work-gloves",
+   "name": "Work Gloves",
+   "tab": "gear",
+   "rarity": 1,
+   "tags": [
+    "combat"
+   ],
+   "effect": "+1 on grip, climb, and disarm checks",
+   "quip": "Calloused companions.",
+   "slot": "hands"
+  },
+  {
+   "id": "boxing-gloves",
+   "name": "Boxing Gloves",
+   "tab": "gear",
+   "rarity": 1,
+   "tags": [
+    "combat"
+   ],
+   "effect": "Punches +2 damage; no weapons",
+   "quip": "Padded fury.",
+   "slot": "hands"
+  },
+  {
+   "id": "lockpicker-s-gloves",
+   "name": "Lockpicker's Gloves",
+   "tab": "gear",
+   "rarity": 2,
+   "tags": [
+    "stealth"
+   ],
+   "effect": "+2 to pick locks",
+   "quip": "Smooth operator.",
+   "slot": "hands"
+  },
+  {
+   "id": "gauntlets-of-mild-strength",
+   "name": "Gauntlets of Mild Strength",
+   "tab": "gear",
+   "rarity": 2,
+   "tags": [
+    "combat"
+   ],
+   "effect": "+1 STR checks",
+   "quip": "Medium-grade muscle.",
+   "slot": "hands"
+  },
+  {
+   "id": "oven-mitts",
+   "name": "Oven Mitts",
+   "tab": "gear",
+   "rarity": 1,
+   "tags": [
+    "fire",
+    "junk"
+   ],
+   "effect": "Handle hot items safely",
+   "quip": "Domestic defense.",
+   "slot": "hands"
+  },
+  {
+   "id": "gauntlets-of-overkill",
+   "name": "Gauntlets of Overkill",
+   "tab": "gear",
+   "rarity": 4,
+   "tags": [
+    "combat"
+   ],
+   "effect": "+3 damage; crits deal double",
+   "quip": "Excessive. Also good.",
+   "slot": "hands"
+  },
+  {
+   "id": "running-shoes",
+   "name": "Running Shoes",
+   "tab": "gear",
+   "rarity": 1,
+   "tags": [
+    "escape"
+   ],
+   "effect": "+1 to escape and chase checks",
+   "quip": "Run. Just run.",
+   "slot": "feet"
+  },
+  {
+   "id": "steel-toe-boots",
+   "name": "Steel-Toe Boots",
+   "tab": "gear",
+   "rarity": 1,
+   "tags": [
+    "combat"
+   ],
+   "effect": "Kicks +1 damage; immune to floor traps",
+   "quip": "Toe protection premium.",
+   "slot": "feet"
+  },
+  {
+   "id": "fuzzy-slippers",
+   "name": "Fuzzy Slippers",
+   "tab": "gear",
+   "rarity": 1,
+   "tags": [
+    "stealth"
+   ],
+   "effect": "+1 stealth on stone floors",
+   "quip": "Quiet. Cozy.",
+   "slot": "feet"
+  },
+  {
+   "id": "roller-skates",
+   "name": "Roller Skates",
+   "tab": "gear",
+   "rarity": 2,
+   "tags": [
+    "escape",
+    "combat"
+   ],
+   "effect": "+2 on chases; -2 on stairs",
+   "quip": "Fast. Not stable.",
+   "slot": "feet"
+  },
+  {
+   "id": "hiking-boots",
+   "name": "Hiking Boots",
+   "tab": "gear",
+   "rarity": 1,
+   "tags": [
+    "escape"
+   ],
+   "effect": "Ignore difficult terrain",
+   "quip": "Mountains not included.",
+   "slot": "feet"
+  },
+  {
+   "id": "flip-flops-of-doom",
+   "name": "Flip-Flops of Doom",
+   "tab": "gear",
+   "rarity": 1,
+   "tags": [
+    "junk"
+   ],
+   "effect": "-1 DEX; audience laughs",
+   "quip": "Slap. Slap. Slap.",
+   "slot": "feet"
+  },
+  {
+   "id": "boots-of-quiet-steps",
+   "name": "Boots of Quiet Steps",
+   "tab": "gear",
+   "rarity": 3,
+   "tags": [
+    "stealth"
+   ],
+   "effect": "+2 stealth",
+   "quip": "Whisper-walkers.",
+   "slot": "feet"
+  },
+  {
+   "id": "boots-of-the-last-minute",
+   "name": "Boots of the Last Minute",
+   "tab": "gear",
+   "rarity": 4,
+   "tags": [
+    "escape"
+   ],
+   "effect": "Escape one fight per floor automatically",
+   "quip": "Always just in time.",
+   "slot": "feet"
+  },
+  {
+   "id": "lucky-rabbit-foot",
+   "name": "Lucky Rabbit Foot",
+   "tab": "trinket",
+   "rarity": 1,
+   "tags": [
+    "luck"
+   ],
+   "effect": "Once per floor, reroll one check",
+   "quip": "Lucky for you. Less so for the rabbit."
+  },
+  {
+   "id": "chipped-compass",
+   "name": "Chipped Compass",
+   "tab": "trinket",
+   "rarity": 1,
+   "tags": [
+    "map"
+   ],
+   "effect": "Reveals one adjacent room on the map",
+   "quip": "Points to a different north."
+  },
+  {
+   "id": "pocket-mirror",
+   "name": "Pocket Mirror",
+   "tab": "trinket",
+   "rarity": 1,
+   "tags": [
+    "magic",
+    "stealth"
+   ],
+   "effect": "Reflects a gaze attack once",
+   "quip": "Mirror, mirror, don't die."
+  },
+  {
+   "id": "rusty-whistle",
+   "name": "Rusty Whistle",
+   "tab": "trinket",
+   "rarity": 1,
+   "tags": [
+    "beast"
+   ],
+   "effect": "Calls nearby animals; results vary",
+   "quip": "Sound reasoning: none."
+  },
+  {
+   "id": "tiny-violin",
+   "name": "Tiny Violin",
+   "tab": "trinket",
+   "rarity": 1,
+   "tags": [
+    "crowd",
+    "social"
+   ],
+   "effect": "An enemy hesitates once",
+   "quip": "The smallest violin, playing just for them."
+  },
+  {
+   "id": "snake-eyes-dice",
+   "name": "Snake Eyes Dice",
+   "tab": "trinket",
+   "rarity": 2,
+   "tags": [
+    "luck",
+    "crowd"
+   ],
+   "effect": "+1 to gambling and luck checks",
+   "quip": "Loaded? Surely not."
+  },
+  {
+   "id": "ring-of-marginal-protection",
+   "name": "Ring of Marginal Protection",
+   "tab": "trinket",
+   "rarity": 2,
+   "tags": [
+    "combat"
+   ],
+   "effect": "Reduces the first hit each fight by 1",
+   "quip": "Slightly shielding."
+  },
+  {
+   "id": "pendant-of-pleasant-smells",
+   "name": "Pendant of Pleasant Smells",
+   "tab": "trinket",
+   "rarity": 1,
+   "tags": [
+    "gross",
+    "social"
+   ],
+   "effect": "Ignore stink; +1 CHA",
+   "quip": "Odor control."
+  },
+  {
+   "id": "foil-wrapped-charm",
+   "name": "Foil Wrapped Charm",
+   "tab": "trinket",
+   "rarity": 1,
+   "tags": [
+    "junk",
+    "luck"
+   ],
+   "effect": "Once: negate a natural 1",
+   "quip": "Shiny luck."
+  },
+  {
+   "id": "gold-pocket-watch",
+   "name": "Gold Pocket Watch",
+   "tab": "trinket",
+   "rarity": 2,
+   "tags": [
+    "escape"
+   ],
+   "effect": "Stop time for one action per floor",
+   "quip": "Time well spent."
+  },
+  {
+   "id": "skeleton-key-charm",
+   "name": "Skeleton Key Charm",
+   "tab": "trinket",
+   "rarity": 2,
+   "tags": [
+    "stealth",
+    "trap"
+   ],
+   "effect": "Opens one locked door per floor",
+   "quip": "Unlocking potential."
+  },
+  {
+   "id": "crystal-doodad",
+   "name": "Crystal Doodad",
+   "tab": "trinket",
+   "rarity": 2,
+   "tags": [
+    "magic"
+   ],
+   "effect": "+1 MP regained per scene",
+   "quip": "Crystalline whimsy."
+  },
+  {
+   "id": "audience-favorite-pin",
+   "name": "Audience Favorite Pin",
+   "tab": "trinket",
+   "rarity": 2,
+   "tags": [
+    "crowd"
+   ],
+   "effect": "Fans send a small gift on a crit",
+   "quip": "Pin it on. Pin on fame."
+  },
+  {
+   "id": "mushroom-charm",
+   "name": "Mushroom Charm",
+   "tab": "trinket",
+   "rarity": 2,
+   "tags": [
+    "poison",
+    "healing"
+   ],
+   "effect": "Poison tolerance +2",
+   "quip": "Fungal friend."
+  },
+  {
+   "id": "ring-of-quiet-failure",
+   "name": "Ring of Quiet Failure",
+   "tab": "trinket",
+   "rarity": 1,
+   "tags": [
+    "stealth"
+   ],
+   "effect": "Failed stealth checks make half the noise",
+   "quip": "Failing softly."
+  },
+  {
+   "id": "heirloom-locket",
+   "name": "Heirloom Locket",
+   "tab": "trinket",
+   "rarity": 2,
+   "tags": [
+    "luck",
+    "social"
+   ],
+   "effect": "Once per floor, ask the System for a hint",
+   "quip": "Contains a photo of nobody."
+  },
+  {
+   "id": "goblin-tooth-necklace",
+   "name": "Goblin Tooth Necklace",
+   "tab": "trinket",
+   "rarity": 1,
+   "tags": [
+    "goblin",
+    "combat"
+   ],
+   "effect": "+1 against goblins",
+   "quip": "Trophy hunting."
+  },
+  {
+   "id": "orb-of-mild-illumination",
+   "name": "Orb of Mild Illumination",
+   "tab": "trinket",
+   "rarity": 1,
+   "tags": [
+    "light"
+   ],
+   "effect": "Constant faint light",
+   "quip": "A torch, but spooky."
+  },
+  {
+   "id": "whisper-shell",
+   "name": "Whisper Shell",
+   "tab": "trinket",
+   "rarity": 2,
+   "tags": [
+    "magic"
+   ],
+   "effect": "Hear nearby secrets; some whispers lie",
+   "quip": "Conch of gossip."
+  },
+  {
+   "id": "ring-of-free-refills",
+   "name": "Ring of Free Refills",
+   "tab": "trinket",
+   "rarity": 3,
+   "tags": [
+    "healing"
+   ],
+   "effect": "Heal 1 HP per turn out of combat",
+   "quip": "Bottomless, tasteless."
+  },
+  {
+   "id": "cloak-clasp-of-shadows",
+   "name": "Cloak Clasp of Shadows",
+   "tab": "trinket",
+   "rarity": 3,
+   "tags": [
+    "stealth"
+   ],
+   "effect": "Hide in darkness automatically",
+   "quip": "Hug the shade."
+  },
+  {
+   "id": "phoenix-feather-pin",
+   "name": "Phoenix Feather Pin",
+   "tab": "trinket",
+   "rarity": 3,
+   "tags": [
+    "healing",
+    "fire"
+   ],
+   "effect": "Once per run, revive at half HP",
+   "quip": "Burns brightly."
+  },
+  {
+   "id": "stopwatch-of-urgency",
+   "name": "Stopwatch of Urgency",
+   "tab": "trinket",
+   "rarity": 2,
+   "tags": [
+    "escape"
+   ],
+   "effect": "+5 turns on the floor timer, once per floor",
+   "quip": "Time bought, borrowed, never returned."
+  },
+  {
+   "id": "lucky-underwear",
+   "name": "Lucky Underwear",
+   "tab": "trinket",
+   "rarity": 1,
+   "tags": [
+    "luck",
+    "gross"
+   ],
+   "effect": "+1 on the first check of each floor",
+   "quip": "Lucky. Washed? Unknown."
+  },
+  {
+   "id": "sponsor-s-medallion",
+   "name": "Sponsor's Medallion",
+   "tab": "trinket",
+   "rarity": 3,
+   "tags": [
+    "crowd"
+   ],
+   "effect": "Loot boxes drop slightly more often",
+   "quip": "Powered by brand synergy."
+  },
+  {
+   "id": "monocle-of-true-sight",
+   "name": "Monocle of True Sight",
+   "tab": "trinket",
+   "rarity": 3,
+   "tags": [
+    "magic"
+   ],
+   "effect": "See through illusions and disguises",
+   "quip": "Reality, sharpened."
+  },
+  {
+   "id": "rubber-ducky-idol",
+   "name": "Rubber Ducky Idol",
+   "tab": "trinket",
+   "rarity": 2,
+   "tags": [
+    "luck",
+    "crowd"
+   ],
+   "effect": "+1 to crowd checks",
+   "quip": "Sacred squeak."
+  },
+  {
+   "id": "pocket-dimension-keychain",
+   "name": "Pocket Dimension Keychain",
+   "tab": "trinket",
+   "rarity": 3,
+   "tags": [
+    "magic"
+   ],
+   "effect": "+3 junk-tab slots",
+   "quip": "Space for things you should not keep."
+  },
+  {
+   "id": "dead-man-s-hand",
+   "name": "Dead Man's Hand",
+   "tab": "trinket",
+   "rarity": 2,
+   "tags": [
+    "luck"
+   ],
+   "effect": "Once: auto-succeed one check, then lose 5 HP",
+   "quip": "Aces and eights."
+  },
+  {
+   "id": "thimble-of-vengeance",
+   "name": "Thimble of Vengeance",
+   "tab": "trinket",
+   "rarity": 1,
+   "tags": [
+    "combat"
+   ],
+   "effect": "The first hit you take is returned for 1 damage",
+   "quip": "Tiny, petty, fierce."
+  },
+  {
+   "id": "silver-spoon",
+   "name": "Silver Spoon",
+   "tab": "trinket",
+   "rarity": 2,
+   "tags": [
+    "food",
+    "healing"
+   ],
+   "effect": "Food heals 2 more",
+   "quip": "Born with one in your mouth."
+  },
+  {
+   "id": "ring-of-boring",
+   "name": "Ring of Boring",
+   "tab": "trinket",
+   "rarity": 2,
+   "tags": [
+    "social"
+   ],
+   "effect": "Enemies ignore you for 1 turn at fight start",
+   "quip": "Dullness is protection."
+  },
+  {
+   "id": "gummy-bear-amulet",
+   "name": "Gummy Bear Amulet",
+   "tab": "trinket",
+   "rarity": 1,
+   "tags": [
+    "food"
+   ],
+   "effect": "Heal 1 HP once per scene",
+   "quip": "Chewy blessing."
+  },
+  {
+   "id": "duct-tape-roll",
+   "name": "Duct Tape Roll",
+   "tab": "trinket",
+   "rarity": 1,
+   "tags": [
+    "junk",
+    "trap"
+   ],
+   "effect": "Fix one broken item per floor",
+   "quip": "Fixes everything. Mostly."
+  },
+  {
+   "id": "lucky-paper-crane",
+   "name": "Lucky Paper Crane",
+   "tab": "trinket",
+   "rarity": 1,
+   "tags": [
+    "paper",
+    "luck"
+   ],
+   "effect": "Becomes a scout once",
+   "quip": "Folded fortune."
+  },
+  {
+   "id": "tiny-cannon",
+   "name": "Tiny Cannon",
+   "tab": "trinket",
+   "rarity": 2,
+   "tags": [
+    "fire",
+    "combat"
+   ],
+   "effect": "Once per floor, deal 6 ranged damage",
+   "quip": "Cannonball-sized joke."
+  },
+  {
+   "id": "fan-club-badge",
+   "name": "Fan Club Badge",
+   "tab": "trinket",
+   "rarity": 2,
+   "tags": [
+    "crowd"
+   ],
+   "effect": "Hype gains +1 each fight",
+   "quip": "Join the club."
+  },
+  {
+   "id": "the-sponsor-s-golden-ticket",
+   "name": "The Sponsor's Golden Ticket",
+   "tab": "trinket",
+   "rarity": 4,
+   "tags": [
+    "crowd"
+   ],
+   "effect": "Once per run, open a bonus gold loot box",
+   "quip": "Because you are special. Sorry, we were told to say that."
+  },
+  {
+   "id": "system-s-remote-control",
+   "name": "System's Remote Control",
+   "tab": "trinket",
+   "rarity": 4,
+   "tags": [
+    "magic"
+   ],
+   "effect": "Once per run, rewind the last turn",
+   "quip": "Please do not press Reset on us."
+  },
+  {
+   "id": "scroll-of-sneak-attack",
+   "name": "Scroll of Sneak Attack",
+   "tab": "scroll",
+   "rarity": 1,
+   "tags": [
+    "stealth"
+   ],
+   "effect": "Learn: +2 damage on unaware targets",
+   "quip": "Look behind you. Too late."
+  },
+  {
+   "id": "scroll-of-lesser-fireball",
+   "name": "Scroll of Lesser Fireball",
+   "tab": "scroll",
+   "rarity": 2,
+   "tags": [
+    "fire",
+    "magic"
+   ],
+   "effect": "Learn spell: 6 area damage for 4 MP",
+   "quip": "Boom, but small."
+  },
+  {
+   "id": "scroll-of-frost-bolt",
+   "name": "Scroll of Frost Bolt",
+   "tab": "scroll",
+   "rarity": 2,
+   "tags": [
+    "ice",
+    "magic"
+   ],
+   "effect": "Learn spell: 5 damage plus slow for 4 MP",
+   "quip": "Chill out."
+  },
+  {
+   "id": "scroll-of-heal",
+   "name": "Scroll of Heal",
+   "tab": "scroll",
+   "rarity": 2,
+   "tags": [
+    "healing",
+    "magic"
+   ],
+   "effect": "Learn spell: heal 6 HP for 4 MP",
+   "quip": "Healing, hopefully."
+  },
+  {
+   "id": "scroll-of-mage-hand",
+   "name": "Scroll of Mage Hand",
+   "tab": "scroll",
+   "rarity": 1,
+   "tags": [
+    "magic",
+    "stealth"
+   ],
+   "effect": "Learn: move small objects at range",
+   "quip": "Fingers: invisible."
+  },
+  {
+   "id": "scroll-of-charm-person",
+   "name": "Scroll of Charm Person",
+   "tab": "scroll",
+   "rarity": 2,
+   "tags": [
+    "social",
+    "magic"
+   ],
+   "effect": "Learn: calm one enemy for a scene",
+   "quip": "Sweet talk, spelled."
+  },
+  {
+   "id": "scroll-of-haste",
+   "name": "Scroll of Haste",
+   "tab": "scroll",
+   "rarity": 3,
+   "tags": [
+    "magic"
+   ],
+   "effect": "Learn spell: two actions once per fight",
+   "quip": "Faster. Faster. Fastest."
+  },
+  {
+   "id": "scroll-of-barrier",
+   "name": "Scroll of Barrier",
+   "tab": "scroll",
+   "rarity": 2,
+   "tags": [
+    "magic"
+   ],
+   "effect": "Learn spell: absorb 8 damage",
+   "quip": "A wall. Of vibes."
+  },
+  {
+   "id": "scroll-of-identify",
+   "name": "Scroll of Identify",
+   "tab": "scroll",
+   "rarity": 1,
+   "tags": [
+    "magic"
+   ],
+   "effect": "Learn: reveal item properties",
+   "quip": "Know thy trash."
+  },
+  {
+   "id": "scroll-of-lockpicking",
+   "name": "Scroll of Lockpicking",
+   "tab": "scroll",
+   "rarity": 1,
+   "tags": [
+    "stealth"
+   ],
+   "effect": "Learn: +2 to pick locks",
+   "quip": "Click. Click. Open."
+  },
+  {
+   "id": "scroll-of-tracking",
+   "name": "Scroll of Tracking",
+   "tab": "scroll",
+   "rarity": 1,
+   "tags": [
+    "beast"
+   ],
+   "effect": "Learn: follow enemy trails",
+   "quip": "Footprints: your friends."
+  },
+  {
+   "id": "scroll-of-shout",
+   "name": "Scroll of Shout",
+   "tab": "scroll",
+   "rarity": 1,
+   "tags": [
+    "combat",
+    "crowd"
+   ],
+   "effect": "Learn: stun small foes; wakes sleepers",
+   "quip": "Loud and proud."
+  },
+  {
+   "id": "scroll-of-backflip",
+   "name": "Scroll of Backflip",
+   "tab": "scroll",
+   "rarity": 1,
+   "tags": [
+    "escape"
+   ],
+   "effect": "Learn: +2 to dodge once per fight",
+   "quip": "Acrobatic ego."
+  },
+  {
+   "id": "scroll-of-poison-touch",
+   "name": "Scroll of Poison Touch",
+   "tab": "scroll",
+   "rarity": 2,
+   "tags": [
+    "poison"
+   ],
+   "effect": "Learn: melee attacks poison for 3 turns",
+   "quip": "Venomous handshakes."
+  },
+  {
+   "id": "scroll-of-raise-rat",
+   "name": "Scroll of Raise Rat",
+   "tab": "scroll",
+   "rarity": 2,
+   "tags": [
+    "undead",
+    "magic"
+   ],
+   "effect": "Learn: raise a dead rat as a minion",
+   "quip": "Squeaky ally."
+  },
+  {
+   "id": "scroll-of-speak-with-animals",
+   "name": "Scroll of Speak with Animals",
+   "tab": "scroll",
+   "rarity": 2,
+   "tags": [
+    "beast"
+   ],
+   "effect": "Learn: talk to animals (they are rude)",
+   "quip": "Chat with creatures."
+  },
+  {
+   "id": "scroll-of-second-wind",
+   "name": "Scroll of Second Wind",
+   "tab": "scroll",
+   "rarity": 2,
+   "tags": [
+    "healing"
+   ],
+   "effect": "Learn: heal 5 HP once per fight",
+   "quip": "Catch your breath. And a punch."
+  },
+  {
+   "id": "scroll-of-play-dead",
+   "name": "Scroll of Play Dead",
+   "tab": "scroll",
+   "rarity": 1,
+   "tags": [
+    "stealth"
+   ],
+   "effect": "Learn: enemies ignore you once per floor",
+   "quip": "Perfect acting."
+  },
+  {
+   "id": "scroll-of-appraise",
+   "name": "Scroll of Appraise",
+   "tab": "scroll",
+   "rarity": 1,
+   "tags": [
+    "social"
+   ],
+   "effect": "Learn: reveal item values and fakes",
+   "quip": "Smart eyes."
+  },
+  {
+   "id": "scroll-of-taunt",
+   "name": "Scroll of Taunt",
+   "tab": "scroll",
+   "rarity": 1,
+   "tags": [
+    "combat",
+    "crowd"
+   ],
+   "effect": "Learn: draw an enemy's attention",
+   "quip": "Insults, optimized."
+  },
+  {
+   "id": "scroll-of-rewrite-reality-minor",
+   "name": "Scroll of Rewrite Reality (Minor)",
+   "tab": "scroll",
+   "rarity": 4,
+   "tags": [
+    "magic"
+   ],
+   "effect": "Learn: once per floor, turn one failed check into a success",
+   "quip": "The System would like a word."
+  },
+  {
+   "id": "elixir-of-everything",
+   "name": "Elixir of Everything",
+   "tab": "consumable",
+   "rarity": 4,
+   "tags": [
+    "healing",
+    "magic"
+   ],
+   "effect": "Full heal, full MP, clears debuffs",
+   "quip": "Do not tell the others."
+  }
+ ],
+ "modifiers": [
+  {
+   "name": "Gently Used",
+   "minRarity": 1,
+   "effect": "No change",
+   "quip": "Previously owned. Previously loved."
+  },
+  {
+   "name": "Slightly Cursed",
+   "minRarity": 1,
+   "effect": "+1 to the effect; sometimes backfires in a minor way",
+   "quip": "Works great. Mostly."
+  },
+  {
+   "name": "Mildly Haunted",
+   "minRarity": 1,
+   "effect": "Whispers hints; occasional scare",
+   "quip": "Free ghost included."
+  },
+  {
+   "name": "Counterfeit",
+   "minRarity": 1,
+   "effect": "Looks one rarity higher; works as common until identified",
+   "quip": "Fake it till you break it."
+  },
+  {
+   "name": "Suspiciously Sticky",
+   "minRarity": 1,
+   "effect": "Cannot be dropped until cleaned",
+   "quip": "Do not ask."
+  },
+  {
+   "name": "Cheap Knockoff",
+   "minRarity": 1,
+   "effect": "-1 to bonuses; no curse",
+   "quip": "Quality is a suggestion."
+  },
+  {
+   "name": "Gooey",
+   "minRarity": 1,
+   "effect": "Leaves residue that tracks you",
+   "quip": "Sticky, gross, memorable."
+  },
+  {
+   "name": "Tiny",
+   "minRarity": 1,
+   "effect": "Counts as half an item",
+   "quip": "Pocket-sized wonder."
+  },
+  {
+   "name": "Oversized",
+   "minRarity": 1,
+   "effect": "+1 damage, -1 DEX",
+   "quip": "Large and in charge."
+  },
+  {
+   "name": "Sponsor-Approved",
+   "minRarity": 2,
+   "effect": "+1 to checks while the audience watches",
+   "quip": "Brought to you by someone's money."
+  },
+  {
+   "name": "Overclocked",
+   "minRarity": 2,
+   "effect": "+1 to the effect; breaks after 5 uses",
+   "quip": "Burn bright, break soon."
+  },
+  {
+   "name": "Heirloom",
+   "minRarity": 2,
+   "effect": "Never breaks",
+   "quip": "Passed down from someone who died of it."
+  },
+  {
+   "name": "Fireproof",
+   "minRarity": 2,
+   "effect": "Immune to fire",
+   "quip": "Warning: stories still flammable."
+  },
+  {
+   "name": "Rust-Proof",
+   "minRarity": 2,
+   "effect": "Immune to rust and acid",
+   "quip": "Sparkles. Mostly."
+  },
+  {
+   "name": "Vintage",
+   "minRarity": 2,
+   "effect": "+1 to the effect; cannot be repaired",
+   "quip": "Old school, old rules."
+  },
+  {
+   "name": "Deluxe",
+   "minRarity": 3,
+   "effect": "+1 to all bonuses",
+   "quip": "Premium. Premium. Premium."
+  },
+  {
+   "name": "Gilded",
+   "minRarity": 3,
+   "effect": "NPCs treat you better",
+   "quip": "Shiny."
+  },
+  {
+   "name": "Mythic",
+   "minRarity": 4,
+   "effect": "+2 to all bonuses and one extra property",
+   "quip": "Legend-adjacent."
+  }
+ ],
+ "templates": [
+  "{enemy}-Scented Candle",
+  "{room} Souvenir Mug",
+  "{enemy}'s Lucky Tooth",
+  "Commemorative {event} Medal",
+  "Official {class} Starter Kit",
+  "{enemy} Slayer Trading Card",
+  "Half-Eaten {enemy} Snack",
+  "{room} Welcome Mat",
+  "Signed Photo of {enemy}",
+  "Thank You Note From {enemy}"
+ ]
+}

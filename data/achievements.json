@@ -1,0 +1,220 @@
+{
+ "rewards": {
+  "T": {
+   "xp": 5
+  },
+  "M": {
+   "xp": 10
+  },
+  "N": {
+   "xp": 25,
+   "box": "bronze"
+  },
+  "J": {
+   "xp": 50,
+   "box": "silver"
+  }
+ },
+ "achievements": [
+  {
+   "id": "registered",
+   "name": "Registered",
+   "trigger": "Finish character creation",
+   "check": "code",
+   "reward": "N",
+   "quip": "The tutorial box."
+  },
+  {
+   "id": "level-two",
+   "name": "Level Two, Who Cares",
+   "trigger": "Reach level 2",
+   "check": "code",
+   "reward": "M",
+   "quip": "Level two. The audience yawned."
+  },
+  {
+   "id": "level-five",
+   "name": "Level Five, Okay Fine",
+   "trigger": "Reach level 5",
+   "check": "code",
+   "reward": "N",
+   "quip": "Level five. Fine. Take a box."
+  },
+  {
+   "id": "close-call",
+   "name": "Close Call",
+   "trigger": "Survive at 3 HP or less",
+   "check": "code",
+   "reward": "M",
+   "quip": "You survived with spite and 3 HP."
+  },
+  {
+   "id": "hoarder-of-garbage",
+   "name": "Hoarder of Garbage",
+   "trigger": "Hold 10 items in the junk tab",
+   "check": "code",
+   "reward": "T",
+   "quip": "Ten pieces of junk. A collection."
+  },
+  {
+   "id": "walking-pharmacy",
+   "name": "Walking Pharmacy",
+   "trigger": "Hold 5 consumables at once",
+   "check": "code",
+   "reward": "T",
+   "quip": "Five consumables. Pharmacist energy."
+  },
+  {
+   "id": "window-shopping",
+   "name": "Window Shopping",
+   "trigger": "Open your first loot box",
+   "check": "code",
+   "reward": "T",
+   "quip": "First box opened. Addiction begins."
+  },
+  {
+   "id": "box-addict",
+   "name": "Box Addict",
+   "trigger": "Open 5 loot boxes",
+   "check": "code",
+   "reward": "M",
+   "quip": "Five boxes. Seek help."
+  },
+  {
+   "id": "next-floor-please",
+   "name": "Next Floor, Please",
+   "trigger": "Reach floor 2",
+   "check": "code",
+   "reward": "N",
+   "quip": "Floor 2. Somehow."
+  },
+  {
+   "id": "slow-and-steady",
+   "name": "Slow and Steady",
+   "trigger": "Spend 100 turns on one floor",
+   "check": "code",
+   "reward": "M",
+   "quip": "One hundred turns. Thorough or lost?"
+  },
+  {
+   "id": "running-late",
+   "name": "Running Late",
+   "trigger": "Floor timer drops under 50 turns",
+   "check": "code",
+   "reward": "T",
+   "quip": "Under 50 turns left. Hurry up."
+  },
+  {
+   "id": "fully-loaded",
+   "name": "Fully Loaded",
+   "trigger": "Fill all five trinket slots",
+   "check": "code",
+   "reward": "M",
+   "quip": "Five trinkets. Jingle jingle."
+  },
+  {
+   "id": "janitorial-services",
+   "name": "Janitorial Services",
+   "trigger": "Defeat a janitor or cleaner-type enemy",
+   "check": "dm",
+   "reward": "T",
+   "quip": "Killed a man on the clock."
+  },
+  {
+   "id": "wrong-door",
+   "name": "Wrong Door",
+   "trigger": "Open the one door the System warned about",
+   "check": "dm",
+   "reward": "M",
+   "quip": "The System warned you. You did it anyway."
+  },
+  {
+   "id": "pet-the-dog",
+   "name": "Pet the Dog",
+   "trigger": "Befriend or pet something that could kill you",
+   "check": "dm",
+   "reward": "T",
+   "quip": "It could have killed you. It chose not to."
+  },
+  {
+   "id": "property-damage",
+   "name": "Property Damage",
+   "trigger": "Wreck a dungeon fixture for no reason",
+   "check": "dm",
+   "reward": "T",
+   "quip": "The System is billing you."
+  },
+  {
+   "id": "fashion-crime",
+   "name": "Fashion Crime",
+   "trigger": "Equip clearly mismatched or silly gear",
+   "check": "dm",
+   "reward": "T",
+   "quip": "The audience is concerned."
+  },
+  {
+   "id": "sweet-talker",
+   "name": "Sweet Talker",
+   "trigger": "Talk your way out of a fight",
+   "check": "dm",
+   "reward": "M",
+   "quip": "Words beat swords. Sometimes."
+  },
+  {
+   "id": "stealth-sort-of",
+   "name": "Stealth, Sort Of",
+   "trigger": "Sneak past an enemy and get noticed anyway",
+   "check": "dm",
+   "reward": "T",
+   "quip": "Noticed. Very noticed."
+  },
+  {
+   "id": "improvised-weapon",
+   "name": "Improvised Weapon",
+   "trigger": "Win a fight using something that is not a weapon",
+   "check": "dm",
+   "reward": "M",
+   "quip": "A chair is a weapon if you are brave enough."
+  },
+  {
+   "id": "crowd-pleaser",
+   "name": "Crowd Pleaser",
+   "trigger": "Pull off a stunt the audience would cheer, once per floor",
+   "check": "dm",
+   "reward": "N",
+   "quip": "The audience is on its feet."
+  },
+  {
+   "id": "unreasonably-polite",
+   "name": "Unreasonably Polite",
+   "trigger": "Clear a floor without killing anything",
+   "check": "dm",
+   "reward": "J",
+   "quip": "Pacifist. The audience demands blood."
+  },
+  {
+   "id": "untouchable",
+   "name": "Untouchable",
+   "trigger": "Beat a floor boss without losing HP",
+   "check": "dm",
+   "reward": "J",
+   "quip": "Not a scratch. Insufferable."
+  },
+  {
+   "id": "tutorial-complete-barely",
+   "name": "Tutorial Complete, Barely",
+   "trigger": "Defeat the Floor 1 boss",
+   "check": "dm",
+   "reward": "J",
+   "quip": "Floor 1 boss down. Barely."
+  },
+  {
+   "id": "embarrassing",
+   "name": "Embarrassing",
+   "trigger": "Die to the weakest enemy on the floor",
+   "check": "dm",
+   "reward": "",
+   "quip": "You died to that. Truly embarrassing."
+  }
+ ]
+}

@@ -1,0 +1,512 @@
+{
+ "version": 1,
+ "floor": 1,
+ "name": "Orientation",
+ "timer": 300,
+ "restCost": 5,
+ "start": "intake-hall",
+ "timerEvents": [
+  {
+   "turnsLeft": 200,
+   "event": "Restructuring: the Flooded Sublevel deepens and eels roam wider"
+  },
+  {
+   "turnsLeft": 100,
+   "event": "Layoffs: Goblin Security Guards patrol, 1-in-6 encounter per move"
+  },
+  {
+   "turnsLeft": 50,
+   "event": "Lights go red; Foreman Gruk gets +2 damage"
+  },
+  {
+   "turnsLeft": 0,
+   "event": "Collapse: dies unless in the Stairs Room"
+  }
+ ],
+ "boss": {
+  "id": "foreman-gruk",
+  "phases": [
+   {
+    "hpFrom": 40,
+    "hpTo": 26,
+    "name": "Orientation",
+    "note": "calls two Goblin Janitors; clipboard 4 damage"
+   },
+   {
+    "hpFrom": 25,
+    "hpTo": 11,
+    "name": "Performance Review",
+    "note": "Review debuff: -1 to all checks until a CHA check passes"
+   },
+   {
+    "hpFrom": 10,
+    "hpTo": 0,
+    "name": "Layoffs",
+    "note": "filing cabinets, 6 area damage, DEX check to dodge"
+   }
+  ]
+ },
+ "gateWays": [
+  "fight: Foreman Badge",
+  "sneak: Maintenance Shaft back door",
+  "talk: Steward Pip union pass",
+  "force: explosives or heavy charge, guards at +2"
+ ],
+ "rooms": [
+  {
+   "id": "intake-hall",
+   "name": "Intake Hall",
+   "type": "start",
+   "x": 2,
+   "y": 4,
+   "exits": [
+    {
+     "to": "mop-closet",
+     "kind": "normal"
+    },
+    {
+     "to": "cafeteria",
+     "kind": "normal"
+    },
+    {
+     "to": "rat-warren",
+     "kind": "normal"
+    }
+   ],
+   "blurb": "Broken welcome desk, flickering orientation screen, three exits.",
+   "encounters": [],
+   "loot": [
+    "junk"
+   ]
+  },
+  {
+   "id": "mop-closet",
+   "name": "Mop Closet",
+   "type": "fight",
+   "x": 1,
+   "y": 4,
+   "exits": [
+    {
+     "to": "intake-hall",
+     "kind": "normal"
+    },
+    {
+     "to": "break-room",
+     "kind": "normal"
+    }
+   ],
+   "blurb": "A Goblin Janitor guards junk and a janitor key.",
+   "encounters": [
+    "goblin-janitor"
+   ],
+   "loot": [
+    "junk",
+    "janitors-key"
+   ]
+  },
+  {
+   "id": "cafeteria",
+   "name": "Cafeteria of Questionable Meat",
+   "type": "set-piece",
+   "x": 3,
+   "y": 4,
+   "exits": [
+    {
+     "to": "intake-hall",
+     "kind": "normal"
+    },
+    {
+     "to": "flooded-sublevel",
+     "kind": "normal"
+    }
+   ],
+   "blurb": "Healing food, and a vending machine that is not a vending machine.",
+   "encounters": [
+    "vending-mimic"
+   ],
+   "loot": [
+    "consumable",
+    "supply-cage-key"
+   ]
+  },
+  {
+   "id": "break-room",
+   "name": "Break Room",
+   "type": "safe",
+   "x": 1,
+   "y": 3,
+   "exits": [
+    {
+     "to": "mop-closet",
+     "kind": "normal"
+    },
+    {
+     "to": "rat-warren",
+     "kind": "normal"
+    },
+    {
+     "to": "records-archive",
+     "kind": "normal"
+    }
+   ],
+   "safe": true,
+   "blurb": "Couch, free vending machine, a trinket on a shelf. Resting costs 5 turns.",
+   "encounters": [],
+   "loot": [
+    "trinket"
+   ]
+  },
+  {
+   "id": "rat-warren",
+   "name": "Rat Warren",
+   "type": "fight-trap",
+   "x": 2,
+   "y": 3,
+   "exits": [
+    {
+     "to": "intake-hall",
+     "kind": "normal"
+    },
+    {
+     "to": "break-room",
+     "kind": "normal"
+    },
+    {
+     "to": "flooded-sublevel",
+     "kind": "normal"
+    },
+    {
+     "to": "hall-of-poor-decisions",
+     "kind": "normal"
+    }
+   ],
+   "blurb": "Rat swarm and a pressure-plate corridor.",
+   "encounters": [
+    "rat-swarm"
+   ],
+   "loot": [
+    "junk"
+   ]
+  },
+  {
+   "id": "flooded-sublevel",
+   "name": "Flooded Sublevel",
+   "type": "hazard",
+   "x": 3,
+   "y": 3,
+   "exits": [
+    {
+     "to": "cafeteria",
+     "kind": "normal"
+    },
+    {
+     "to": "rat-warren",
+     "kind": "normal"
+    },
+    {
+     "to": "union-hall",
+     "kind": "normal"
+    }
+   ],
+   "blurb": "Knee-deep water, eels, a hidden pipe.",
+   "encounters": [
+    "sump-eel"
+   ],
+   "loot": [
+    "consumable"
+   ]
+  },
+  {
+   "id": "records-archive",
+   "name": "Records Archive",
+   "type": "puzzle",
+   "x": 1,
+   "y": 2,
+   "exits": [
+    {
+     "to": "break-room",
+     "kind": "normal"
+    },
+    {
+     "to": "hall-of-poor-decisions",
+     "kind": "normal"
+    },
+    {
+     "to": "secret-stash",
+     "kind": "secret",
+     "req": "search"
+    }
+   ],
+   "blurb": "Filing maze, a Paper Shredder, a secret door north.",
+   "encounters": [
+    "paper-shredder"
+   ],
+   "loot": [
+    "map-fragment"
+   ]
+  },
+  {
+   "id": "hall-of-poor-decisions",
+   "name": "Hall of Poor Decisions",
+   "type": "trap-gauntlet",
+   "x": 2,
+   "y": 2,
+   "exits": [
+    {
+     "to": "rat-warren",
+     "kind": "normal"
+    },
+    {
+     "to": "records-archive",
+     "kind": "normal"
+    },
+    {
+     "to": "union-hall",
+     "kind": "normal"
+    },
+    {
+     "to": "foremans-office",
+     "kind": "normal"
+    }
+   ],
+   "blurb": "Three pressure-plate paths and a plaque of warnings.",
+   "encounters": [],
+   "loot": [
+    "junk"
+   ]
+  },
+  {
+   "id": "union-hall",
+   "name": "Goblin Union Hall",
+   "type": "social",
+   "x": 3,
+   "y": 2,
+   "exits": [
+    {
+     "to": "flooded-sublevel",
+     "kind": "normal"
+    },
+    {
+     "to": "hall-of-poor-decisions",
+     "kind": "normal"
+    },
+    {
+     "to": "supply-cage",
+     "kind": "locked",
+     "req": "supply-cage-key"
+    }
+   ],
+   "blurb": "Steward Pip and a goblin work stoppage.",
+   "encounters": [
+    "steward-pip"
+   ],
+   "loot": []
+  },
+  {
+   "id": "supply-cage",
+   "name": "Supply Cage",
+   "type": "locked-loot",
+   "x": 4,
+   "y": 2,
+   "exits": [
+    {
+     "to": "union-hall",
+     "kind": "normal"
+    },
+    {
+     "to": "maintenance-shaft",
+     "kind": "vent",
+     "req": "search"
+    }
+   ],
+   "blurb": "Consumables and one gear piece.",
+   "encounters": [],
+   "loot": [
+    "consumable",
+    "gear"
+   ]
+  },
+  {
+   "id": "maintenance-shaft",
+   "name": "Maintenance Shaft",
+   "type": "secret",
+   "x": 3,
+   "y": 0,
+   "exits": [
+    {
+     "to": "supply-cage",
+     "kind": "vent"
+    },
+    {
+     "to": "foremans-office",
+     "kind": "vent"
+    }
+   ],
+   "hidden": true,
+   "blurb": "Vent crawl to the Foreman back door. Two Intern Zombies.",
+   "encounters": [
+    "intern-zombie",
+    "intern-zombie"
+   ],
+   "loot": [
+    "junk"
+   ]
+  },
+  {
+   "id": "secret-stash",
+   "name": "Secret Stash",
+   "type": "secret",
+   "x": 0,
+   "y": 2,
+   "exits": [
+    {
+     "to": "records-archive",
+     "kind": "secret"
+    }
+   ],
+   "hidden": true,
+   "blurb": "Employee of the Month shrine and a silver loot box.",
+   "encounters": [],
+   "loot": [
+    "silver-box"
+   ]
+  },
+  {
+   "id": "foremans-office",
+   "name": "Foreman's Office",
+   "type": "boss",
+   "x": 2,
+   "y": 1,
+   "exits": [
+    {
+     "to": "hall-of-poor-decisions",
+     "kind": "normal"
+    },
+    {
+     "to": "maintenance-shaft",
+     "kind": "vent"
+    },
+    {
+     "to": "compliance-door",
+     "kind": "normal"
+    }
+   ],
+   "blurb": "Foreman Gruk and his clipboard.",
+   "encounters": [
+    "foreman-gruk"
+   ],
+   "loot": [
+    "foremans-badge",
+    "gold-box"
+   ]
+  },
+  {
+   "id": "compliance-door",
+   "name": "Compliance Door",
+   "type": "gate",
+   "x": 3,
+   "y": 1,
+   "exits": [
+    {
+     "to": "foremans-office",
+     "kind": "normal"
+    },
+    {
+     "to": "stairs-room",
+     "kind": "gate",
+     "req": "foremans-badge|forged-badge|union-pass|force"
+    }
+   ],
+   "blurb": "Badge reader. Four ways through.",
+   "encounters": [],
+   "loot": []
+  },
+  {
+   "id": "stairs-room",
+   "name": "Stairs Room",
+   "type": "exit",
+   "x": 4,
+   "y": 1,
+   "exits": [
+    {
+     "to": "compliance-door",
+     "kind": "normal"
+    }
+   ],
+   "blurb": "Staircase down and the floor-clear screen.",
+   "encounters": [],
+   "loot": [
+    "silver-box"
+   ]
+  }
+ ],
+ "enemies": [
+  {
+   "id": "goblin-janitor",
+   "name": "Goblin Janitor",
+   "hp": 4,
+   "dmg": 2,
+   "xp": 5
+  },
+  {
+   "id": "rat-swarm",
+   "name": "Sewer Rat swarm",
+   "hp": 12,
+   "dmg": 1,
+   "xp": 10,
+   "notes": "4 rats at 3 HP each"
+  },
+  {
+   "id": "intern-zombie",
+   "name": "Intern Zombie",
+   "hp": 8,
+   "dmg": 2,
+   "xp": 10
+  },
+  {
+   "id": "vending-mimic",
+   "name": "Vending Machine Mimic",
+   "hp": 15,
+   "dmg": 4,
+   "xp": 20
+  },
+  {
+   "id": "sump-eel",
+   "name": "Sump Eel",
+   "hp": 10,
+   "dmg": 3,
+   "xp": 10
+  },
+  {
+   "id": "paper-shredder",
+   "name": "Paper Shredder",
+   "hp": 12,
+   "dmg": 3,
+   "xp": 15
+  },
+  {
+   "id": "goblin-guard",
+   "name": "Goblin Security Guard",
+   "hp": 10,
+   "dmg": 3,
+   "xp": 15,
+   "notes": "patrols after the 100-turn event"
+  },
+  {
+   "id": "steward-pip",
+   "name": "Steward Pip",
+   "hp": 6,
+   "dmg": 1,
+   "xp": 0,
+   "notes": "social NPC"
+  },
+  {
+   "id": "foreman-gruk",
+   "name": "Foreman Gruk",
+   "hp": 40,
+   "dmg": 5,
+   "xp": 50,
+   "boss": true
+  }
+ ]
+}
