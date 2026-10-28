@@ -1,7 +1,7 @@
 // Debug log: records each turn so a report can be copied and pasted for troubleshooting.
 const KEY = 'crawl_debug';
 const MAX = 40;
-export const BUILD = '0.1.4';
+export const BUILD = '0.1.5';
 
 export function createDebug(store) {
   let entries = [];
