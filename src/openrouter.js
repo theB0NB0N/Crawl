@@ -29,7 +29,11 @@ export async function callModel({ key, model, messages, fetchImpl = fetch, timeo
       }
       const j = await res.json();
       const text = j?.choices?.[0]?.message?.content;
-      if (!text) throw new Error('The model returned an empty reply. Try again.');
+      if (!text || !String(text).trim()) {
+        lastErr = new Error('The model returned an empty reply. Try again.');
+        if (attempt === 0) continue;
+        throw lastErr;
+      }
       return text;
     } catch (e) {
       clearTimeout(timer);

@@ -84,3 +84,19 @@ export function mapView(state, floor) {
   }
   return { nodes, edges };
 }
+
+// Detects "go to the cafeteria" style actions and returns the matching exit, if any.
+const MOVE_WORDS = /\b(go|head|enter|walk|run|move|step|visit|leave|climb|crawl|sneak|check out|into|toward|towards|exit|dash|slip)\b/i;
+const STOP = new Set(['the', 'of', 'and', 'room', 'hall']);
+
+export function matchExit(state, floor, action) {
+  if (!MOVE_WORDS.test(action)) return null;
+  const text = action.toLowerCase();
+  let best = null, bestScore = 0;
+  for (const e of visibleExits(state, floor)) {
+    const words = `${e.name} ${e.to.replace(/-/g, ' ')}`.toLowerCase().split(/[^a-z']+/).filter((w) => w.length > 3 && !STOP.has(w));
+    const score = new Set(words.filter((w) => text.includes(w.replace(/s$/, '')))).size;
+    if (score > bestScore) { best = e; bestScore = score; }
+  }
+  return best;
+}

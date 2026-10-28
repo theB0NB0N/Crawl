@@ -1,6 +1,6 @@
 // Turn engine: validates the DM delta, runs timer/map rules, makes exactly one API call.
 import { addXp, damage, addItem, removeItemByName, noteTags } from './state.js';
-import { moveTo, canMove, discoverExit, currentRoom, roomById } from './map.js';
+import { moveTo, canMove, discoverExit, currentRoom, roomById, matchExit } from './map.js';
 import { checkCodeAchievements, findAch, award } from './achievements.js';
 import { addBox, TIERS } from './loot.js';
 import { parseReply } from './parser.js';
@@ -76,23 +76,45 @@ export function tickTimer(state, floor) {
 
 export async function takeTurn({ state, floor, data, action, key, model, prompt, rng = defaultRng, call = callModel }) {
   if (state.dead) throw new Error('You are dead. Start a new crawl.');
-  const dice = rollPool(rng);
-  const { events, log: tlog } = tickTimer(state, floor);
-  state.turn += 1;
-  let narration = '';
-  let log = [...tlog];
-  if (!state.dead) {
-    const messages = buildMessages({ prompt, state, floor, action, dice, events });
-    const raw = await call({ key, model, messages }); // the one API call
-    const parsed = parseReply(raw);
-    narration = parsed.narration || '(The System stares at you in silence.)';
-    log.push(...applyDelta(state, floor, data, parsed.delta));
-    state.history.push({ role: 'user', content: action }, { role: 'assistant', content: narration });
-    state.history = state.history.slice(-12);
-  } else {
-    narration = state.deathCause;
+  const snap = structuredClone(state);
+  try {
+    const dice = rollPool(rng);
+    const log = [];
+    const extra = [];
+    // Movement is decided in code, not by the model.
+    const exit = matchExit(state, floor, action);
+    if (exit) {
+      if (exit.status.ok) {
+        moveTo(state, floor, exit.to);
+        const r = currentRoom(state, floor);
+        extra.push(`The crawler just moved into ${r.name}. Describe arriving there (${r.blurb}).`);
+        log.push(`-> ${r.name}`);
+      } else {
+        extra.push(`The way to ${exit.name} is blocked (${exit.status.reason}). The crawler did NOT move. Narrate why.`);
+      }
+    }
+    const { events, log: tlog } = tickTimer(state, floor);
+    log.push(...tlog);
+    state.turn += 1;
+    let narration = '';
+    if (!state.dead) {
+      const messages = buildMessages({ prompt, state, floor, action, dice, events: [...extra, ...events] });
+      const raw = await call({ key, model, messages }); // the one API call
+      const parsed = parseReply(raw);
+      narration = parsed.narration || '(The System stares at you in silence.)';
+      const delta = parsed.delta && exit ? { ...parsed.delta, room: undefined } : parsed.delta;
+      log.push(...applyDelta(state, floor, data, delta));
+      state.history.push({ role: 'user', content: action }, { role: 'assistant', content: narration });
+      state.history = state.history.slice(-12);
+    } else {
+      narration = state.deathCause;
+    }
+    log.push(...checkCodeAchievements(state, data));
+    return { narration, log, dice, needsSummary: state.turn % 10 === 0 };
+  } catch (e) {
+    // A failed turn costs nothing: restore everything.
+    for (const k of Object.keys(state)) delete state[k];
+    Object.assign(state, snap);
+    throw e;
   }
-  log.push(...checkCodeAchievements(state, data));
-  noteTags(state, []);
-  return { narration, log, dice, needsSummary: state.turn % 10 === 0 };
 }

@@ -57,3 +57,21 @@ test('takeTurn makes exactly one call', async () => {
     call: async () => { calls++; return 'You look.\n<state>{"xp":5}</state>'; } });
   assert.equal(calls, 1); assert.ok(s.crawler.xp >= 5); assert.equal(r.narration, 'You look.');
 });
+
+test('movement words move the player in code', async () => {
+  const s = mk();
+  await takeTurn({ state: s, floor, data, action: 'head to the cafeteria', key: 'k', model: 'm', prompt: 'p', call: async () => 'Ew.\n<state>{}</state>' });
+  assert.equal(s.map.current, 'cafeteria');
+});
+
+test('non-movement text does not move', async () => {
+  const s = mk();
+  await takeTurn({ state: s, floor, data, action: 'inspect the welcome desk', key: 'k', model: 'm', prompt: 'p', call: async () => 'Meh.\n<state>{}</state>' });
+  assert.equal(s.map.current, 'intake-hall');
+});
+
+test('failed call rolls the turn back', async () => {
+  const s = mk(); const before = s.floor.turnsLeft;
+  await assert.rejects(takeTurn({ state: s, floor, data, action: 'go to the cafeteria', key: 'k', model: 'm', prompt: 'p', call: async () => { throw new Error('boom'); } }));
+  assert.equal(s.floor.turnsLeft, before); assert.equal(s.map.current, 'intake-hall'); assert.equal(s.turn, 0);
+});
