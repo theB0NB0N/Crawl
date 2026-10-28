@@ -104,3 +104,27 @@ test('vague items rejected, bank items upgraded, unknown items get default effec
   assert.ok(names.includes('Rusty Nail') && names.includes('Goblin Dental Plan'));
   assert.match(s.inventory.junk.find((i) => i.name === 'Rusty Nail').desc, /lock/i);
 });
+
+test('leaked reasoning rolls the turn back instead of showing it', async () => {
+  const s = mk();
+  const leak = 'The player wants to take the rag. I need to narrate this. The pre-rolled dice: d20: 8, 19, 14';
+  await assert.rejects(takeTurn({ state: s, floor, data, action: 'look', key: 'k', model: 'm', prompt: 'p', call: async () => leak }), /leaked its reasoning/);
+  assert.equal(s.turn, 0);
+});
+
+test('normal narration without a state block is still shown', async () => {
+  const s = mk();
+  const r = await takeTurn({ state: s, floor, data, action: 'look', key: 'k', model: 'm', prompt: 'p', call: async () => 'The desk is broken. So are you.' });
+  assert.match(r.narration, /desk is broken/);
+});
+
+test('free model list sorts non-reasoning first', async () => {
+  const { listFreeModels } = await import('../src/openrouter.js');
+  const fake = async () => ({ ok: true, json: async () => ({ data: [
+    { id: 'a/think:free', pricing: { prompt: '0', completion: '0' }, context_length: 100000, supported_parameters: ['reasoning'] },
+    { id: 'b/plain:free', pricing: { prompt: '0', completion: '0' }, context_length: 32000, supported_parameters: [] },
+    { id: 'c/paid', pricing: { prompt: '0.1', completion: '0.1' }, context_length: 1 },
+  ] }) });
+  const ms = await listFreeModels('k', fake);
+  assert.deepEqual(ms.map((m) => m.id), ['b/plain:free', 'a/think:free']);
+});

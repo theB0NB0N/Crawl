@@ -1,11 +1,11 @@
 import { loadData } from './data.js';
 import { newGame, makeStorage, saveGame, loadGame, exportSave, importSave, TABS, TRINKET_SLOTS, xpToNext } from './state.js';
-import { mapView, visibleExits, currentRoom } from './map.js';
+import { mapView, visibleExits, currentRoom, allowedFlags } from './map.js';
 import { takeTurn } from './engine.js';
 import { DEFAULT_PROMPT } from './prompt.js';
 import { checkCodeAchievements } from './achievements.js';
 import { openBox, addBox } from './loot.js';
-import { checkKey } from './openrouter.js';
+import { checkKey, listFreeModels } from './openrouter.js';
 import { createDebug, BUILD } from './debug.js';
 
 const store = makeStorage(globalThis.localStorage);
@@ -53,6 +53,10 @@ async function init() {
   data = await loadData();
   state = loadGame(store);
   const hashMsg = applyHash();
+  if (state && data.floors[state.floor.number]) {
+    const ok = allowedFlags(data.floors[state.floor.number]);
+    for (const k of Object.keys(state.flags)) if (!ok.includes(k)) delete state.flags[k];
+  }
   if (state) ui.feed = [{ k: 'log', t: hashMsg || 'Save loaded.' }];
   else if (hashMsg) ui.error = hashMsg;
   render();
@@ -135,7 +139,8 @@ function settingsView() {
   <h2>Settings</h2>
   <p>OpenRouter key</p><input id="key" type="password" value="${esc(store.get('crawl_key'))}">
   <p>Model</p><input id="model" value="${esc(model())}">
-  <p><button class="btn alt" id="check">Check key</button> <span id="keyout"></span></p>
+  <p><button class="btn alt" id="check">Check key</button> <button class="btn alt" id="findmodels">Find free models</button> <span id="keyout"></span></p>
+  <div id="models"></div>
   <p>DM prompt</p><textarea id="prompt" rows="10">${esc(store.get('crawl_prompt', DEFAULT_PROMPT))}</textarea>
   <p><button class="btn" id="saveset">Save settings</button> <button class="btn alt" id="resetp">Reset prompt</button></p>
   <h2>Move to another device</h2>
@@ -196,6 +201,14 @@ function bind() {
   if ($('dbg')) $('dbg').onclick = doDebug;
   if ($('dbg2')) $('dbg2').onclick = doDebug;
   if ($('dbgclear')) $('dbgclear').onclick = () => { debug.clear(); $('dbgout').value = 'Log cleared.'; };
+  if ($('findmodels')) $('findmodels').onclick = async () => {
+    $('models').innerHTML = '<p class="msg me">Loading…</p>';
+    try {
+      const ms = await listFreeModels($('key').value.trim());
+      $('models').innerHTML = ms.slice(0, 40).map((m) => `<div class="card" data-model="${esc(m.id)}"><b>${esc(m.id)}</b><span>${m.reasoning ? '⚠ reasoning model (may leak thinking)' : 'standard'} · ${Math.round(m.context / 1000)}k context · tap to use</span></div>`).join('') || '<p class="msg me">No free models found.</p>';
+      $('models').querySelectorAll('[data-model]').forEach((el) => el.onclick = () => { $('model').value = el.dataset.model; store.set('crawl_model', el.dataset.model); $('keyout').textContent = `Using ${el.dataset.model}`; });
+    } catch (e) { $('models').innerHTML = `<p class="err">${esc(e.message)}</p>`; }
+  };
   if ($('export')) $('export').onclick = () => { $('blob').value = exportSave(state); };
   if ($('import')) $('import').onclick = () => { try { state = importSave($('blob').value); persist(); ui.tab = 'story'; render(); } catch (e) { alert(e.message); } };
 }

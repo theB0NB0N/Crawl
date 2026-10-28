@@ -3,7 +3,7 @@ import { addXp, damage, addItem, removeItemByName, noteTags } from './state.js';
 import { moveTo, canMove, discoverExit, currentRoom, roomById, matchExit, allowedFlags } from './map.js';
 import { checkCodeAchievements, findAch, award } from './achievements.js';
 import { addBox, TIERS } from './loot.js';
-import { parseReply } from './parser.js';
+import { parseReply, looksLikeReasoning } from './parser.js';
 import { buildMessages, rollPool } from './prompt.js';
 import { callModel } from './openrouter.js';
 import { defaultRng } from './dice.js';
@@ -117,6 +117,9 @@ export async function takeTurn({ state, floor, data, action, key, model, prompt,
       dbg.raw = raw;
       const parsed = parseReply(raw);
       dbg.delta = parsed.delta;
+      if (!parsed.delta && looksLikeReasoning(raw)) {
+        throw new Error('That model leaked its reasoning instead of answering. The turn was rolled back. Try again, or pick a non-reasoning model in More > Find free models.');
+      }
       narration = parsed.narration || '(The System stares at you in silence.)';
       const delta = parsed.delta && exit ? { ...parsed.delta, room: undefined } : parsed.delta;
       log.push(...applyDelta(state, floor, data, delta));

@@ -33,3 +33,9 @@ function tryJson(s) {
   try { return JSON.parse(t); } catch { /* try loose repair */ }
   try { return JSON.parse(t.replace(/,\s*([}\]])/g, '$1')); } catch { return null; }
 }
+
+// Reasoning models sometimes dump their chain of thought as the reply. Detect that.
+export function looksLikeReasoning(text) {
+  const t = String(text).slice(0, 600);
+  return /\b(pre-?rolled|the player (wants|is|has|said)|I (need|should|must|will|'ll) (to )?(narrate|use|update|add|check|make)|let's (use|do|see|say)|the prompt says|the system said|d20:\s*\d)/i.test(t);
+}

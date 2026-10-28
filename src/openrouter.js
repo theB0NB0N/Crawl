@@ -9,7 +9,7 @@ export function friendlyError(status, body) {
   return `Request failed (${status}) ${String(body || '').slice(0, 120)}`;
 }
 
-export async function callModel({ key, model, messages, fetchImpl = fetch, timeoutMs = 60000, maxTokens = 500 }) {
+export async function callModel({ key, model, messages, fetchImpl = fetch, timeoutMs = 60000, maxTokens = 800 }) {
   let lastErr;
   for (let attempt = 0; attempt < 2; attempt++) {
     const ctl = new AbortController();
@@ -19,7 +19,7 @@ export async function callModel({ key, model, messages, fetchImpl = fetch, timeo
         method: 'POST',
         signal: ctl.signal,
         headers: { Authorization: `Bearer ${key}`, 'Content-Type': 'application/json', 'X-Title': 'Crawl' },
-        body: JSON.stringify({ model, messages, max_tokens: maxTokens, temperature: 0.9 }),
+        body: JSON.stringify({ model, messages, max_tokens: maxTokens, temperature: 0.9, reasoning: { exclude: true } }),
       });
       clearTimeout(timer);
       if (!res.ok) {
@@ -50,4 +50,20 @@ export async function checkKey(key, fetchImpl = fetch) {
   const res = await fetchImpl(`${BASE}/key`, { headers: { Authorization: `Bearer ${key}` } });
   if (!res.ok) throw new Error(friendlyError(res.status));
   return (await res.json()).data;
+}
+
+// Free models, non-reasoning first. Reasoning models tend to leak their thinking into replies.
+export async function listFreeModels(key, fetchImpl = fetch) {
+  const res = await fetchImpl(`${BASE}/models`, key ? { headers: { Authorization: `Bearer ${key}` } } : {});
+  if (!res.ok) throw new Error(friendlyError(res.status));
+  const list = (await res.json()).data || [];
+  return list
+    .filter((m) => m.pricing && Number(m.pricing.prompt) === 0 && Number(m.pricing.completion) === 0)
+    .map((m) => ({
+      id: m.id,
+      name: m.name || m.id,
+      context: m.context_length || 0,
+      reasoning: (m.supported_parameters || []).includes('reasoning') || /think|reason|r1\b/i.test(m.id),
+    }))
+    .sort((a, b) => Number(a.reasoning) - Number(b.reasoning) || b.context - a.context);
 }
